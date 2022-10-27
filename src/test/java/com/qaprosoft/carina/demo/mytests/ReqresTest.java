@@ -4,6 +4,7 @@ import com.qaprosoft.apitools.validation.JsonCompareKeywords;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.demo.api.mytests.reqresin.GetUserMethod;
+import com.qaprosoft.carina.demo.api.mytests.reqresin.PostUserMethod;
 import org.skyscreamer.jsonassert.JSONCompareMode;
 import org.testng.annotations.Test;
 
@@ -14,7 +15,16 @@ public class ReqresTest implements IAbstractTest {
     public void getUserTest(){
         GetUserMethod getUserMethod = new GetUserMethod();
         getUserMethod.callAPIExpectSuccess();
-        getUserMethod.validateResponse(JSONCompareMode.STRICT, JsonCompareKeywords.ARRAY_CONTAINS.getKey());
+        getUserMethod.validateResponse();
         getUserMethod.validateResponseAgainstSchema("api/users/_get/reqresUsers.schema");
     }
+
+    @Test()
+    @MethodOwner(owner = "gigi")
+    public void createUser(){
+        PostUserMethod postUserMethod = new PostUserMethod();
+        postUserMethod.callAPI();
+        postUserMethod.validateResponse();
+    }
+
 }

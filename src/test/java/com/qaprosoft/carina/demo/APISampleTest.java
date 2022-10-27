@@ -50,15 +50,6 @@ public class APISampleTest implements IAbstractTest {
         PostUserMethod api = new PostUserMethod();
         api.setProperties("api/users/user.properties");
 
-        AtomicInteger counter = new AtomicInteger(0);
-
-        api.callAPIWithRetry()
-                .withLogStrategy(APIMethodPoller.LogStrategy.ALL)
-                .peek(rs -> counter.getAndIncrement())
-                .until(rs -> counter.get() == 4)
-                .pollEvery(1, ChronoUnit.SECONDS)
-                .stopAfter(10, ChronoUnit.SECONDS)
-                .execute();
         api.validateResponse();
     }
 
