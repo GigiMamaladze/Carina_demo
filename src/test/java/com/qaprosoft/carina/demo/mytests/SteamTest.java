@@ -28,7 +28,7 @@ public class SteamTest extends AbstractTest {
 //
 //
 //    static {
-//        try (FileInputStream f = new FileInputStream("D:\\Java Projects\\Test Automation\\carina-demo\\src\\main\\resources\\userInformation.properties")) {
+//        try (FileInputStream f = new FileInputStream("D:\\Java Projects\\Test Automation\\carinaapplication-demo\\src\\main\\resources\\userInformation.properties")) {
 //            properties.load(f);
 //        } catch (IOException e) {
 //            LOGGER.info(e);

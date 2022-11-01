@@ -25,7 +25,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-//import com.qaprosoft.carina.browserupproxy.ProxyPool;
+//import com.qaprosoft.carinaapplication.browserupproxy.ProxyPool;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.R;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;

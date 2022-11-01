@@ -25,7 +25,7 @@ import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 
 /**
- * This is Hello World carina-demo tests.
+ * This is Hello World carinaapplication-demo tests.
  *
  * @author qpsdemo
  */
