@@ -48,18 +48,18 @@ public class SteamTest extends AbstractTest {
 
         SearchedGamesPage searchedGamesPage =steamHomePage.searchGame("Fifa");
         assertTrue(searchedGamesPage.isGamePresent(),"Searched Page is not Exsit");
-        pause(2);
+
 
 
         ChosenGamePage chosenGamePage = searchedGamesPage.clickSearchedGame();
         assertTrue(chosenGamePage.isAddToCartBtnPresent(),"Game is Not Exsit");
-        pause(2);
+
 
 
 
         BuyGamePage buyGamePage = chosenGamePage.clickAddToCartBtn();
         assertTrue(buyGamePage.isPurchaseForMyselfBtnPresent(),"Purchase For MySelf Button not Exsit");
-        pause(2);
+
 
         UserSignInPage userSignInPage = buyGamePage.clickPurchaseForMyselfBtn();
         assertTrue(userSignInPage.isAccountNameExist(),"Account Name box is not Exsit");
@@ -84,6 +84,7 @@ public class SteamTest extends AbstractTest {
 
         CardPayment cardPayment =paymentMethodLists.choosePaymentMethod();
         cardPayment.fillFields(1231245L,"Gigi","Mamaladze","batumi",111,"benze","Benze",12,5912331);
+        assertTrue(paymentMethodLists.isVisaBtnExsit(),"VisaBtn is not Exsit");
         pause(5);
 
     }

@@ -1,6 +1,7 @@
 package com.qaprosoft.carina.demo.gui.mytests.amazon.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.qaprosoft.carina.demo.gui.mytests.amazon.components.enums.Brands;
 import com.qaprosoft.carina.demo.gui.mytests.amazon.components.enums.Seller;
@@ -12,8 +13,12 @@ public class SearchedResultPage extends AbstractPage {
     @FindBy(xpath = "//*[@id='search']/div[1]/div[1]/div/span[1]/div[1]/div[1]/div/span/div/div/span")
     private ExtendedWebElement resultHeader;
     //Sorted
-    @FindBy(xpath = "//*[@id='a-autoid-0-announce']/span[2]")
+//    @FindBy(xpath = "//*[@id='a-autoid-0-announce']/span[2]")
+//    private ExtendedWebElement sortedList;
+
+    @ExtendedFindBy(text ="%s")
     private ExtendedWebElement sortedList;
+
 
     @FindBy(xpath = "//*[@id='s-result-sort-select_1']")
     private ExtendedWebElement priceLowToHigh;
@@ -68,20 +73,20 @@ public class SearchedResultPage extends AbstractPage {
     }
 
     public void chooseSortProcess(SortedList by){
-        sortedList.click();
+
         switch (by) {
             case LOWTOHIGH:
-                priceLowToHigh.click();
+                sortedList.format("Price: Low to High").click();
                 break;
-            case HIGHTOLOW:
-                priceHighToLow.click();
-                break;
-            case AVGCOSTUMEREVIEW:
-                avgCostumerReview.click();
-                break;
-            case NEWARRIVALS:
-                newestArrivals.click();
-                break;
+//            case HIGHTOLOW:
+//                priceHighToLow.click();
+//                break;
+//            case AVGCOSTUMEREVIEW:
+//                avgCostumerReview.click();
+//                break;
+//            case NEWARRIVALS:
+//                newestArrivals.click();
+//                break;
         }
     }
     public void chooseBrands(Brands brands){

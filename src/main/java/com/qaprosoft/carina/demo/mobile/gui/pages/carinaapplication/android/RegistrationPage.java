@@ -4,6 +4,7 @@ import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.demo.mobile.gui.pages.carinaapplication.common.RegirtrationPageBase;
 import com.qaprosoft.carina.demo.mobile.gui.pages.carinaapplication.common.UserAccountPageBase;
+import com.qaprosoft.carina.demo.mobile.gui.pages.carinaapplication.models.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -34,9 +35,9 @@ public class RegistrationPage extends RegirtrationPageBase {
     }
 
     @Override
-    public UserAccountPageBase logIn(String name, String password, String gender) {
-       nameTextBox.type(name);
-       passwordTextBox.type(password);
+    public UserAccountPageBase logIn(User user,String gender) {
+       nameTextBox.type(user.getLogin());
+       passwordTextBox.type(user.getPassword());
        switch (gender){
            case "Male":
                radioMale.click();

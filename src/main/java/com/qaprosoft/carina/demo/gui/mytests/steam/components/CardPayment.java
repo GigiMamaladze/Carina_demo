@@ -60,6 +60,11 @@ public class CardPayment extends AbstractPage {
         super(driver);
     }
 
+    public void cardPaymantservice(String cardNumber){
+        cardNumberTextBox.type(String.valueOf(cardNumber));
+    }
+
+
     public void fillFields(Long cardNumber,String firstname,String lastname,String city,int code,String addressOne,String addressTwo,int zip, int phone ){
         cardNumberTextBox.type(String.valueOf(cardNumber));
         firstNameTextBox.type(firstname);
