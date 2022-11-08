@@ -24,11 +24,10 @@ public class AmazonTest extends AbstractTest {
         Assert.assertTrue(computerMenu.isPageOpened(),"Page is not Opened");
         SearchedResultPage searchedResultPage = computerMenu.clickComputerComponentsBtn();
         Assert.assertTrue(searchedResultPage.isPageOpened(),"Page is not Opened");
-        searchedResultPage.chooseSortProcess(SortedList.LOWTOHIGH);
-        searchedResultPage.chooseBrands(Brands.LENOVO);
+        searchedResultPage.chooseSortProcess(SortedList.AVGCOSTUMERREVIEW);
+        searchedResultPage.chooseBrands(Brands.SAMSUNG);
         searchedResultPage.chooseSeller(Seller.AMAZON);
         Assert.assertTrue(searchedResultPage.isPageOpened(),"Page is not Opened");
-        pause(5);
 
     }
 }

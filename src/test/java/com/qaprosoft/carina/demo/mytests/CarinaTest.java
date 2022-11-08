@@ -28,13 +28,4 @@ public class CarinaTest extends AbstractTest {
 
     }
 
-    @Test
-    public void testGithubLink(){
-//        CarinaHomePageBase carinaHomePage =initPage(getDriver(), CarinaHomePageBase.class);
-//        Assert.assertTrue(carinaHomePage.isPageOpened(),"Page not found ERROR");
-//        RegirtrationPageBase regirtrationPageBase = carinaHomePage.clickNextBtn();
-//        UserAccountPageBase userAccountPageBase =regirtrationPageBase.logIn("Gigi","gigi1234","Male");
-//        Assert.assertTrue(userAccountPageBase.isPageOpened(),"Page not Found ERROR");
-//        ContentFramePageBase contentFramePageBase =userAccountPageBase.clickContentFrame();
-    }
 }
