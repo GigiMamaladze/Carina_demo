@@ -50,7 +50,7 @@ public class CaveaPlusTest extends AbstractTest {
         CaveaPlusHomePage caveaPlusHomePage = new CaveaPlusHomePage(getDriver());
         caveaPlusHomePage.open();
         Assert.assertTrue(caveaPlusHomePage.isPageOpened(),"Page is Not Opened");
-        MoviesPage moviesPage = caveaPlusHomePage.clickMovie();
+        MoviesPage moviesPage = caveaPlusHomePage.getMenu().clickMovie();
         Assert.assertTrue(moviesPage.isPageOpened(),"Page is not Opened");
     }
 
@@ -60,7 +60,7 @@ public class CaveaPlusTest extends AbstractTest {
         CaveaPlusHomePage caveaPlusHomePage = new CaveaPlusHomePage(getDriver());
         caveaPlusHomePage.open();
         Assert.assertTrue(caveaPlusHomePage.isPageOpened(),"Page is Not Opened");
-        TwShowsPage twShowsPage = caveaPlusHomePage.clickTwShows();
+        TwShowsPage twShowsPage = caveaPlusHomePage.getMenu().clickTwShows();
     }
 
 //--------------------------------------------Process-----------------------------------------------------
