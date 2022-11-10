@@ -1,9 +1,9 @@
-package com.qaprosoft.carina.demo.gui.mytests.cavea.pages;
+package com.qaprosoft.carina.demo.gui.mytests.caveaplus.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.qaprosoft.carina.demo.gui.mytests.cavea.components.enums.Languages;
-import com.qaprosoft.carina.demo.gui.mytests.cavea.components.interfaces.IMenuPages;
+import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums.Languages;
+import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.interfaces.IMenuPages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -24,18 +24,21 @@ public class CaveaPlusHomePage extends AbstractPage implements IMenuPages {
     @FindBy(xpath = "//a[text() = '%s']")
     private ExtendedWebElement languageList;
 
-    @FindBy(xpath = "//*[@class='container-cavea']/app-home-blocks/app-default-block[%s]/section/div[2]/swiper/div[%d]")
+    @FindBy(xpath = "//*[@class='container-caveaplus']/app-home-blocks/app-default-block[%s]/section/div[2]/swiper/div[%d]")
     private ExtendedWebElement swiper;
 
     @FindBy(xpath = "//main-slider/section/div[6]/div")
     private List<ExtendedWebElement> bannerPage;
 
     @FindBy(xpath = "//*[@id='main-navbar']/div[1]/div[2]/app-header-menu/ul/li")
-    private List<ExtendedWebElement> menuPage;
+    private List<ExtendedWebElement> menuPages;
 
 
     @FindBy(xpath = "//*[@id='right-nav']/li[2]/a")
     private ExtendedWebElement logInBtn;
+
+    @FindBy(xpath = "//*[@id='right-nav']/li[3]/a")
+    private ExtendedWebElement registrationBtn;
 
     @Override
     public boolean isPageOpened() {
@@ -44,25 +47,25 @@ public class CaveaPlusHomePage extends AbstractPage implements IMenuPages {
 
     @Override
     public CaveaPlusHomePage clickHome() {
-        menuPage.get(0).click();
+        menuPages.get(0).click();
         return new CaveaPlusHomePage(getDriver());
     }
 
     @Override
     public MoviesPage clickMovie() {
-        menuPage.get(1).click();
+        menuPages.get(1).click();
         return new MoviesPage(getDriver());
     }
 
     @Override
     public TwShowsPage clickTwShows() {
-        menuPage.get(2).click();
+        menuPages.get(2).click();
         return new TwShowsPage(getDriver());
     }
 
     @Override
     public WatchListPage clickWatchList() {
-        menuPage.get(3).click();
+        menuPages.get(3).click();
         return new WatchListPage(getDriver());
     }
 
@@ -92,6 +95,12 @@ public class CaveaPlusHomePage extends AbstractPage implements IMenuPages {
         logInBtn.click();
         return new LogInPage(getDriver());
     }
+
+    public RegistrationPage clickRegistrationBtn(){
+        registrationBtn.click();
+        return new RegistrationPage(getDriver());
+    }
+
 
 
 }

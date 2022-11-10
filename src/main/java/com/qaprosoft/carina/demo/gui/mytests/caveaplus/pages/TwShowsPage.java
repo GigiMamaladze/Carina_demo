@@ -1,22 +1,19 @@
-package com.qaprosoft.carina.demo.gui.mytests.cavea.pages;
+package com.qaprosoft.carina.demo.gui.mytests.caveaplus.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.qaprosoft.carina.demo.gui.mytests.cavea.components.interfaces.IMenuPages;
+import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.interfaces.IMenuPages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class WatchListPage extends AbstractPage implements IMenuPages {
-
-    public WatchListPage(WebDriver driver) {
+public class TwShowsPage extends AbstractPage implements IMenuPages {
+    public TwShowsPage(WebDriver driver) {
         super(driver);
     }
-
     @FindBy(xpath = "//*[@id='main-navbar']/div[1]/div[2]/app-header-menu/ul/li")
     private List<ExtendedWebElement> menuPage;
-
 
 
 

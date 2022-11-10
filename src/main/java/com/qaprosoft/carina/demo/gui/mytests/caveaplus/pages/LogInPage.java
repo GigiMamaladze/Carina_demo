@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.gui.mytests.cavea.pages;
+package com.qaprosoft.carina.demo.gui.mytests.caveaplus.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;

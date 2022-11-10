@@ -2,15 +2,15 @@ package com.qaprosoft.carina.demo.mytests;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
-import com.qaprosoft.carina.demo.gui.mytests.cavea.components.enums.Languages;
-import com.qaprosoft.carina.demo.gui.mytests.cavea.pages.*;
+import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums.Languages;
+import com.qaprosoft.carina.demo.gui.mytests.caveaplus.pages.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class CaveaTest extends AbstractTest {
-    private static final Logger LOGGER = LogManager.getLogger(CaveaTest.class);
+public class CaveaPlusTest extends AbstractTest {
+    private static final Logger LOGGER = LogManager.getLogger(CaveaPlusTest.class);
 
     //----------------------------------------------Main Page---------------------------------------------
 
@@ -41,17 +41,8 @@ public class CaveaTest extends AbstractTest {
         caveaPlusHomePage.switchBannerPage();
     }
 
-    @Test
-    @MethodOwner(owner = "Gigi")
-    public void testLogInProcess(){
-        CaveaPlusHomePage caveaPlusHomePage = new CaveaPlusHomePage(getDriver());
-        caveaPlusHomePage.open();
-        Assert.assertTrue(caveaPlusHomePage.isPageOpened(),"Page is Not Opened");
-        LogInPage logInPage = caveaPlusHomePage.clickLogInBtn();
-    }
 
-
-//-----------------------------------------Menu Pages------------------------------------------------------
+//-----------------------------------------Other Pages------------------------------------------------------
 // In Working Process (Not Full)
     @Test
     @MethodOwner(owner = "Gigi")
@@ -72,5 +63,23 @@ public class CaveaTest extends AbstractTest {
         TwShowsPage twShowsPage = caveaPlusHomePage.clickTwShows();
     }
 
+//--------------------------------------------Process-----------------------------------------------------
+    @Test
+    @MethodOwner(owner = "Gigi")
+    public void testLogInProcess(){
+         CaveaPlusHomePage caveaPlusHomePage = new CaveaPlusHomePage(getDriver());
+         caveaPlusHomePage.open();
+         Assert.assertTrue(caveaPlusHomePage.isPageOpened(),"Page is Not Opened");
+         LogInPage logInPage = caveaPlusHomePage.clickLogInBtn();
+    }
 
+    @Test
+    @MethodOwner(owner = "Gigi")
+    public void testRegistrationProcess(){
+        CaveaPlusHomePage caveaPlusHomePage = new CaveaPlusHomePage(getDriver());
+        caveaPlusHomePage.open();
+        Assert.assertTrue(caveaPlusHomePage.isPageOpened(),"Page is Not Opened");
+        RegistrationPage registrationPage = caveaPlusHomePage.clickRegistrationBtn();
+        Assert.assertTrue(registrationPage.isPageOpened(),"Page is Not Opened");
+    }
 }

@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.gui.mytests.cavea.components.enums;
+package com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums;
 
 public enum Languages {
     GEORGIA(" GEO "), ENGLISH(" ENG ");
