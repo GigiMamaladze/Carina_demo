@@ -24,13 +24,13 @@ public class CaveaPlusHomePage extends AbstractPage{
     @FindBy(xpath = "//a[text() = '%s']")
     private ExtendedWebElement languageList;
 
-    @FindBy(xpath = "//*[@class='container-caveaplus']/app-home-blocks/app-default-block[%s]/section/div[2]/swiper/div[%d]")
+    @FindBy(xpath = "//*[@class='container-cavea']/app-home-blocks/app-default-block[%s]/section/div[2]/swiper/div[%d]")
     private ExtendedWebElement swiper;
 
     @FindBy(xpath = "//main-slider/section/div[6]/div")
     private List<ExtendedWebElement> bannerPage;
 
-    @FindBy(xpath = "//*[@class='nav header-mainMenu ng-star-inserted']")
+    @FindBy(xpath = "//*[@class='nav header-menu ng-star-inserted']")
     private MainMenu mainMenu;
 
     @FindBy(xpath = "//*[@id='right-nav']/li[2]/a")
@@ -51,12 +51,12 @@ public class CaveaPlusHomePage extends AbstractPage{
         languageList.format(languages.getLanguage()).click();
     }
 
-    public void swipeMovies()  {
+    public void swipeMovies() throws InterruptedException {
 
         for (int i = 1; i <=13; i++) {;
             for (int j =1; j<=2;j++) {
                 swiper.format(i, j).scrollTo();
-                pause(1);
+                pause(0.25);
                 swiper.format(i,j).click();
             }
         }

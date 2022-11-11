@@ -2,6 +2,8 @@ package com.qaprosoft.carina.demo.mytests;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
+import com.qaprosoft.carina.core.foundation.utils.tag.Priority;
+import com.qaprosoft.carina.core.foundation.utils.tag.TestPriority;
 import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums.Languages;
 import com.qaprosoft.carina.demo.gui.mytests.caveaplus.pages.*;
 import org.apache.logging.log4j.LogManager;
@@ -25,7 +27,7 @@ public class CaveaPlusTest extends AbstractTest {
 
     @Test
     @MethodOwner(owner = "Gigi")
-    public void testSwiper(){
+    public void testSwiper() throws InterruptedException {
         CaveaPlusHomePage caveaPlusHomePage = new CaveaPlusHomePage(getDriver());
         caveaPlusHomePage.open();
         Assert.assertTrue(caveaPlusHomePage.isPageOpened(),"Page is Not Opened");
@@ -52,7 +54,6 @@ public class CaveaPlusTest extends AbstractTest {
         Assert.assertTrue(caveaPlusHomePage.isPageOpened(),"Page is Not Opened");
         MoviesPage moviesPage = caveaPlusHomePage.getMainMenu().clickMovie();
         Assert.assertTrue(moviesPage.isPageOpened(),"Page is not Opened");
-        TwShowsPage twShowsPage = moviesPage.getMainMenu().clickTwShows();
     }
 
     @Test

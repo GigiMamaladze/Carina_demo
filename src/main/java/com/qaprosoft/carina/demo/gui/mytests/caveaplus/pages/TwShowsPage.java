@@ -10,7 +10,7 @@ public class TwShowsPage extends AbstractPage  {
     @FindBy(xpath = "//*[@id='main-navbar']/div/div[1]/a/span")
     private ExtendedWebElement caveaLogo;
 
-    @FindBy(xpath = "//*[@class='nav header-mainMenu ng-star-inserted']")
+    @FindBy(xpath = "//*[@class='nav header-menu ng-star-inserted']")
     private MainMenu mainMenu;
     public TwShowsPage(WebDriver driver) {
         super(driver);
