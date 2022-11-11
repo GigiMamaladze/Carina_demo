@@ -2,9 +2,8 @@ package com.qaprosoft.carina.demo.gui.mytests.caveaplus.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.Menu;
+import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.MainMenu;
 import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums.Languages;
-import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.interfaces.IMenuPages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -31,8 +30,8 @@ public class CaveaPlusHomePage extends AbstractPage{
     @FindBy(xpath = "//main-slider/section/div[6]/div")
     private List<ExtendedWebElement> bannerPage;
 
-    @FindBy(xpath = "//*[@class='nav header-menu ng-star-inserted']")
-    private Menu menu;
+    @FindBy(xpath = "//*[@class='nav header-mainMenu ng-star-inserted']")
+    private MainMenu mainMenu;
 
     @FindBy(xpath = "//*[@id='right-nav']/li[2]/a")
     private ExtendedWebElement logInBtn;
@@ -78,7 +77,7 @@ public class CaveaPlusHomePage extends AbstractPage{
         registrationBtn.click();
         return new RegistrationPage(getDriver());
     }
-    public Menu getMenu() {
-        return menu;
+    public MainMenu getMainMenu() {
+        return mainMenu;
     }
 }

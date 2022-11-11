@@ -14,16 +14,16 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class Menu extends AbstractUIObject implements IMenuPages {
+public class MainMenu extends AbstractUIObject implements IMenuPages {
 
     @FindBy(xpath = "//*[@id='main-navbar']/div[1]/div[2]/app-header-menu/ul/li")
     private List<ExtendedWebElement> menuPages;
 
-    public Menu(WebDriver driver) {
+    public MainMenu(WebDriver driver) {
         super(driver);
     }
 
-    public Menu(WebDriver driver, SearchContext searchContext) {
+    public MainMenu(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 
