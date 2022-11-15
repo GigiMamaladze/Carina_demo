@@ -3,6 +3,7 @@ package com.qaprosoft.carina.demo.gui.mytests.caveaplus.pages;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.MainMenu;
+import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.MoveAndTwShowFilter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -12,6 +13,10 @@ public class MoviesPage extends AbstractPage  {
 
     @FindBy(xpath = "//*[@class='nav header-menu ng-star-inserted']")
     private MainMenu mainMenu;
+
+    @FindBy(xpath = "//app-movies//section[1]")
+    private MoveAndTwShowFilter moveAndTwShowFilter;
+
     public MoviesPage(WebDriver driver) {
         super(driver);
     }
@@ -23,5 +28,9 @@ public class MoviesPage extends AbstractPage  {
 
     public MainMenu getMainMenu() {
         return mainMenu;
+    }
+
+    public MoveAndTwShowFilter getMovAndSerialFilter() {
+        return moveAndTwShowFilter;
     }
 }

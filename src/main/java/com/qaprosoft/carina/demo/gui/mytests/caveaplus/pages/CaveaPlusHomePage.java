@@ -27,7 +27,7 @@ public class CaveaPlusHomePage extends AbstractPage{
     @FindBy(xpath = "//*[@class='container-cavea']/app-home-blocks/app-default-block[%s]/section/div[2]/swiper/div[%d]")
     private ExtendedWebElement swiper;
 
-    @FindBy(xpath = "//main-slider/section/div[6]/div")
+    @FindBy(xpath = "//main-slider//section//div[7]//div")
     private List<ExtendedWebElement> bannerPage;
 
     @FindBy(xpath = "//*[@class='nav header-menu ng-star-inserted']")
