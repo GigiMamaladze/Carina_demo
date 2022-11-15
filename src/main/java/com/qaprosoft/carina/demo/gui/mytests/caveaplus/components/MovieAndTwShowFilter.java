@@ -7,18 +7,18 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class MoveAndTwShowFilter extends AbstractUIObject {
+public class MovieAndTwShowFilter extends AbstractUIObject {
     @FindBy(xpath = "//app-movies//section[1]/div//div//div")
     private ExtendedWebElement genresListBox;
 
     @FindBy(xpath = "//a[text()='%s']")
     private ExtendedWebElement genresList;
 
-    public MoveAndTwShowFilter(WebDriver driver) {
+    public MovieAndTwShowFilter(WebDriver driver) {
         super(driver);
     }
 
-    public MoveAndTwShowFilter(WebDriver driver, SearchContext searchContext) {
+    public MovieAndTwShowFilter(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 
