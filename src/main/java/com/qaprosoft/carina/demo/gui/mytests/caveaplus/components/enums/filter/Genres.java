@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums;
+package com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums.filter;
 
 public enum Genres {
     HORROR(" Horror "),ADVENTURE(" Adventure "),COMEDY(" Comedy "),DRAMA(" Drama "),DETECTIVE(" Detective "),
