@@ -42,7 +42,7 @@ public class MovieAndTwShowFilter extends AbstractUIObject {
     private ExtendedWebElement yearReleasedDragBox;
 
     @FindBy(xpath = "//*[text()=' Year released ']/../div[2]/div/ngx-slider")
-    private WebElement yearReleaseSlider;
+    private ExtendedWebElement yearReleaseSlider;
 
 
 
@@ -79,8 +79,6 @@ public class MovieAndTwShowFilter extends AbstractUIObject {
 
     public void chooseYearRealised(){
         yearReleasedDragBox.click();
-        Actions action = new Actions(getDriver());
-        action.dragAndDropBy(yearReleaseSlider,1888,2002).perform();
     }
 
 

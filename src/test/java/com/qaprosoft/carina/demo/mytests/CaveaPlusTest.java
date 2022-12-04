@@ -1,7 +1,6 @@
 package com.qaprosoft.carina.demo.mytests;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
-import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums.filter.Countries;
 import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums.filter.Dubbing;
 import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums.filter.Genres;
@@ -15,7 +14,7 @@ public class CaveaPlusTest extends AbstractTest {
 
     //----------------------------------------------Main Page---------------------------------------------
 
-    @Test(priority = 1)
+    @Test(priority = 1,groups = "Home_page")
     public void testChangingLanguage(){
         CaveaPlusHomePage caveaPlusHomePage = new CaveaPlusHomePage(getDriver());
         caveaPlusHomePage.open();
@@ -23,16 +22,15 @@ public class CaveaPlusTest extends AbstractTest {
         caveaPlusHomePage.changeLanguage(Languages.GEORGIA);
     }
 
-    @Test(priority = 2)
-    @MethodOwner(owner = "Gigi")
-    public void testSwiper() throws InterruptedException {
+    @Test(priority = 2,groups = "Home_page")
+    public void testSwiper(){
         CaveaPlusHomePage caveaPlusHomePage = new CaveaPlusHomePage(getDriver());
         caveaPlusHomePage.open();
         Assert.assertTrue(caveaPlusHomePage.isPageOpened(),"Page is Not Opened");
         caveaPlusHomePage.swipeMovies();
     }
 
-    @Test(priority = 3)
+    @Test(priority = 3,groups = "Home_page")
     public void testBannerPages(){
         CaveaPlusHomePage caveaPlusHomePage = new CaveaPlusHomePage(getDriver());
         caveaPlusHomePage.open();
@@ -64,10 +62,18 @@ public class CaveaPlusTest extends AbstractTest {
         caveaPlusHomePage.open();
         Assert.assertTrue(caveaPlusHomePage.isPageOpened(),"Page is Not Opened");
         TwShowsPage twShowsPage = caveaPlusHomePage.getMainMenu().clickTwShows();
+        twShowsPage.getMovAndSerialFilter().chooseGenre(Genres.ADULT_ANIMATION);
+        twShowsPage.getMovAndSerialFilter().chooseDubbing(Dubbing.ENGLISH);
+        twShowsPage.getMovAndSerialFilter().chooseCountry(Countries.BELGIUM);
+        twShowsPage.getMovAndSerialFilter().clickCheckBoxFree();
+        twShowsPage.getMovAndSerialFilter().clickCheckBoxPremium();
+        twShowsPage.getMovAndSerialFilter().chooseYearRealised();
+
+
     }
 
 //--------------------------------------------Process-----------------------------------------------------
-    @Test(priority = 4)
+    @Test(priority = 4,groups = "Login_in")
     public void testLogInProcess(){
          CaveaPlusHomePage caveaPlusHomePage = new CaveaPlusHomePage(getDriver());
          caveaPlusHomePage.open();
@@ -75,7 +81,7 @@ public class CaveaPlusTest extends AbstractTest {
          LogInPage logInPage = caveaPlusHomePage.clickLogInBtn();
     }
 
-    @Test(priority = 5)
+    @Test(priority = 5,groups ="Login_in")
     public void testRegistrationProcess(){
         CaveaPlusHomePage caveaPlusHomePage = new CaveaPlusHomePage(getDriver());
         caveaPlusHomePage.open();

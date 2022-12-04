@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="CaveaPlus" parallel="methods" thread-count="3">
+  <test name="Cavea_Plus_HomePageTest" >
+      <groups>
+          <run>
+              <include name="Home_page"/>
+          </run>
+      </groups>
+      <classes>
+          <class name="com.qaprosoft.carina.demo.mytests.CaveaPlusTest"/>
+      </classes>
+  </test>
+</suite>
