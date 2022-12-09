@@ -5,6 +5,11 @@ import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums.filter.C
 import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums.filter.Dubbing;
 import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums.filter.Genres;
 import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums.Languages;
+import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums.regitration.Day;
+import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums.regitration.Gender;
+import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums.regitration.Month;
+import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums.regitration.Year;
+import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.models.registration.CaveaPlusUser;
 import com.qaprosoft.carina.demo.gui.mytests.caveaplus.pages.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -88,5 +93,8 @@ public class CaveaPlusTest extends AbstractTest {
         Assert.assertTrue(caveaPlusHomePage.isPageOpened(),"Page is Not Opened");
         RegistrationPage registrationPage = caveaPlusHomePage.clickRegistrationBtn();
         Assert.assertTrue(registrationPage.isPageOpened(),"Page is Not Opened");
+        CaveaPlusUser caveaPlusUser = new CaveaPlusUser("Salome","Turmanidze",Day.FOUR,Month.JANUARY,Year.Y2000,Gender.MELA,"555","Salome@","Saloome");
+        registrationPage.inputUserInformation(caveaPlusUser);
     }
+
 }
