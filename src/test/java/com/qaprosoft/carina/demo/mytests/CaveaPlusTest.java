@@ -12,6 +12,7 @@ import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.enums.regitrat
 import com.qaprosoft.carina.demo.gui.mytests.caveaplus.components.models.registration.CaveaPlusUser;
 import com.qaprosoft.carina.demo.gui.mytests.caveaplus.pages.*;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class CaveaPlusTest extends AbstractTest {
@@ -46,7 +47,7 @@ public class CaveaPlusTest extends AbstractTest {
 
 //-----------------------------------------Other Pages------------------------------------------------------
 // In Working Process (Not Full)
-    @Test(priority = 6)
+    @Test(priority = 7)
     public void testMoviePage(){
         CaveaPlusHomePage caveaPlusHomePage = new CaveaPlusHomePage(getDriver());
         caveaPlusHomePage.open();
@@ -61,7 +62,7 @@ public class CaveaPlusTest extends AbstractTest {
         moviesPage.getMovAndSerialFilter().chooseYearRealised();
     }
 
-    @Test(priority = 7)
+    @Test(priority = 8)
     public void testTwShowsPage(){
         CaveaPlusHomePage caveaPlusHomePage = new CaveaPlusHomePage(getDriver());
         caveaPlusHomePage.open();
@@ -78,7 +79,7 @@ public class CaveaPlusTest extends AbstractTest {
     }
 
 //--------------------------------------------Process-----------------------------------------------------
-    @Test(priority = 4,groups = "Login_in")
+    @Test(priority = 4)
     public void testLogInProcess(){
          CaveaPlusHomePage caveaPlusHomePage = new CaveaPlusHomePage(getDriver());
          caveaPlusHomePage.open();
@@ -86,7 +87,7 @@ public class CaveaPlusTest extends AbstractTest {
          LogInPage logInPage = caveaPlusHomePage.clickLogInBtn();
     }
 
-    @Test(priority = 5,groups ="Login_in")
+    @Test(priority = 5)
     public void testRegistrationProcess(){
         CaveaPlusHomePage caveaPlusHomePage = new CaveaPlusHomePage(getDriver());
         caveaPlusHomePage.open();
@@ -95,6 +96,24 @@ public class CaveaPlusTest extends AbstractTest {
         Assert.assertTrue(registrationPage.isPageOpened(),"Page is Not Opened");
         CaveaPlusUser caveaPlusUser = new CaveaPlusUser("Salome","Turmanidze",Day.FOUR,Month.JANUARY,Year.Y2000,Gender.MELA,"555","Salome@","Saloome");
         registrationPage.inputUserInformation(caveaPlusUser);
+    }
+
+    @Test(priority = 6,dataProvider = "caveaPlusUsers")
+    public void testRegistrationProcessDP(CaveaPlusUser caveaPlusUser){
+        CaveaPlusHomePage caveaPlusHomePage = new CaveaPlusHomePage(getDriver());
+        caveaPlusHomePage.open();
+        Assert.assertTrue(caveaPlusHomePage.isPageOpened(),"Page is Not Opened");
+        RegistrationPage registrationPage = caveaPlusHomePage.clickRegistrationBtn();
+        Assert.assertTrue(registrationPage.isPageOpened(),"Page is Not Opened");
+        registrationPage.inputUserInformation(caveaPlusUser);
+    }
+
+    @DataProvider(name = "caveaPlusUsers")
+    public Object[][] cavePlusUser(){
+        return new Object[][]{
+                {new CaveaPlusUser("Gigi","Mamaladze",Day.TWENTY_EIGHT,Month.NOVEMBER,Year.Y2002,Gender.MELA,"555","GigiMamaladze","Gigi1")},
+                {new CaveaPlusUser("Salome","Turmanidze",Day.FOUR,Month.JANUARY,Year.Y2000,Gender.FEMALE,"555","Salome@","Saloome")},
+                {new CaveaPlusUser("Nika","Fartenadze",Day.FOUR,Month.JANUARY,Year.Y2000,Gender.MELA,"555","Nika@","nika")}};
     }
 
 }
