@@ -26,6 +26,7 @@ public class CaveaPlusTest extends AbstractTest {
         caveaPlusHomePage.open();
         Assert.assertTrue(caveaPlusHomePage.isPageOpened(),"Page is Not Opened");
         caveaPlusHomePage.changeLanguage(Languages.GEORGIA);
+        System.out.printf("");
     }
 
     @Test(priority = 2,groups = "Home_page")
