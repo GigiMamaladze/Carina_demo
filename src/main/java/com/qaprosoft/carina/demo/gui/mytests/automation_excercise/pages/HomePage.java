@@ -25,11 +25,23 @@ public class HomePage extends AbstractPage {
     @FindBy(xpath = "//*[@class ='left control-carousel hidden-xs']")
     private ExtendedWebElement bannerPageLeftSwiper;
 
+    @FindBy(xpath = "//*[@class='carousel-inner']/div[1]")
+    private ExtendedWebElement firstBanner;
+    @FindBy(xpath = "//*[@class='carousel-inner']/div[2]")
+    private ExtendedWebElement secondBanner;
     @FindBy(xpath = "//*[@class ='right control-carousel hidden-xs']")
     private ExtendedWebElement bannerPageRightSwiper;
 
     @FindBy(xpath = "//*[@class='col-sm-9 padding-right']")
     private Products products;
+
+    public boolean isSecondBannerVisible() {
+        return secondBanner.isVisible();
+    }
+
+    public boolean isFirstBannerVisible() {
+        return firstBanner.isVisible();
+    }
 
     public Products getProducts() {
         return products;

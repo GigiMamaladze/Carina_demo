@@ -37,8 +37,7 @@ public class SingUpLogInPage extends AbstractPage {
         passwordTextField.type(password);
     }
 
-    public LoggedAccountPage clickLogInBtn() {
+    public void clickLogInBtn() {
         logInBtn.click();
-        return new LoggedAccountPage(getDriver());
     }
 }

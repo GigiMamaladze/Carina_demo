@@ -2,10 +2,8 @@ package com.qaprosoft.carina.demo.gui.mytests.automation_excercise.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.AddedPopUpPage;
 import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.Menu;
 import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.Products;
-import com.qaprosoft.carina.demo.gui_enums.automation_excercise.products.ProductsEnum;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 

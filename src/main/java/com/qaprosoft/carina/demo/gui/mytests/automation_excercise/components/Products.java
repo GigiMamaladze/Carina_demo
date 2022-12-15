@@ -5,7 +5,6 @@ import com.qaprosoft.carina.core.gui.AbstractUIObject;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
-import com.qaprosoft.carina.demo.gui_enums.automation_excercise.products.ProductsEnum;
 
 public class Products extends AbstractUIObject {
     public Products(WebDriver driver) {
@@ -35,9 +34,9 @@ public class Products extends AbstractUIObject {
         items.format(products).hover();
     }
 
-    public AddedPopUpPage addToCard(String product) {
+    public AddedProductPopup addToCard(String product) {
         addToCard.format(product).click();
-        return new AddedPopUpPage(getDriver());
+        return new AddedProductPopup(getDriver());
     }
 
 

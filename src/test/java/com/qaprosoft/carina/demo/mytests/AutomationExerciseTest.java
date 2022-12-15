@@ -1,9 +1,9 @@
 package com.qaprosoft.carina.demo.mytests;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
-import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.AddedPopUpPage;
+import com.qaprosoft.carina.core.foundation.utils.R;
+import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.AddedProductPopup;
 import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.pages.*;
-import com.qaprosoft.carina.demo.gui_enums.automation_excercise.products.ProductsEnum;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -11,16 +11,16 @@ public class AutomationExerciseTest extends AbstractTest {
 
 
     @Test
-    public void checkLogIn() {
+    public void LogInTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Page is not opened");
         SingUpLogInPage singUpLogInPage = homePage.getMenu().clickSingUpLogInBtn();
         Assert.assertTrue(singUpLogInPage.isPageOpened(), "Page is not opened");
-        singUpLogInPage.typeEmail("Gigi@gmail.com");
-        singUpLogInPage.typePassword("gigi");
-        LoggedAccountPage loggedAccountPage = singUpLogInPage.clickLogInBtn();
-        Assert.assertTrue(loggedAccountPage.isAccountDisplayed(), "Account is not displayed");
+        singUpLogInPage.typeEmail(R.TESTDATA.get("email"));
+        singUpLogInPage.typePassword(R.TESTDATA.get("password"));
+        singUpLogInPage.clickLogInBtn();
+        Assert.assertTrue(homePage.getMenu().isAccountDisplayed(R.TESTDATA.get("userName")), "Account is not displayed");
     }
 
     @Test
@@ -32,11 +32,11 @@ public class AutomationExerciseTest extends AbstractTest {
         Assert.assertTrue(productsPage.isPageOpened(), "Page is not opened");
         String product = "Blue Top";
         productsPage.getProducts().scrollToItem(product);
-        Assert.assertTrue(productsPage.getProducts().isItemPresent("Blue Top"), "item is not exist");
+        Assert.assertTrue(productsPage.getProducts().isItemPresent(product), "item is not exist");
         productsPage.getProducts().hoverItem(product);
-        AddedPopUpPage addedPopUpPage = productsPage.getProducts().addToCard(product);
-        Assert.assertTrue(addedPopUpPage.isPageOpened(), "Page is not opened");
-        addedPopUpPage.clickContinueShoppingBtn();
+        AddedProductPopup addedProductPopup = productsPage.getProducts().addToCard(product);
+        Assert.assertTrue(addedProductPopup.isPageOpened(), "Page is not opened");
+        addedProductPopup.clickContinueShoppingBtn();
         CartPage cartPage = productsPage.getMenu().clickToCartBtn();
         Assert.assertTrue(cartPage.isItemPresent(), "Item is not exist");
     }
@@ -49,12 +49,12 @@ public class AutomationExerciseTest extends AbstractTest {
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Page is not opened");
         String product = "Blue Top";
-        Assert.assertTrue(homePage.getProducts().isItemPresent("Blue Top"), "item is not exist");
+        Assert.assertTrue(homePage.getProducts().isItemPresent(product), "item is not exist");
         homePage.getProducts().scrollToItem(product);
         homePage.getProducts().hoverItem(product);
-        AddedPopUpPage addedPopUpPage = homePage.getProducts().addToCard(product);
-        Assert.assertTrue(addedPopUpPage.isPageOpened(), "Page is not opened");
-        addedPopUpPage.clickContinueShoppingBtn();
+        AddedProductPopup addedProductPopup = homePage.getProducts().addToCard(product);
+        Assert.assertTrue(addedProductPopup.isPageOpened(), "Page is not opened");
+        addedProductPopup.clickContinueShoppingBtn();
         CartPage cartPage = homePage.getMenu().clickToCartBtn();
         Assert.assertTrue(cartPage.isItemPresent(), "Item is not exist");
         cartPage.clickXbtn();
@@ -67,7 +67,9 @@ public class AutomationExerciseTest extends AbstractTest {
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Page is not opened");
         homePage.clickRightSwiper();
+        Assert.assertTrue(homePage.isSecondBannerVisible(), "Second Banner is not visible");
         homePage.clickLeftSwiper();
+        Assert.assertTrue(homePage.isFirstBannerVisible(), "First banner is not visible");
     }
 
 

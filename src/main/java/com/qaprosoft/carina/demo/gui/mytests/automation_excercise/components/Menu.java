@@ -17,7 +17,8 @@ public class Menu extends AbstractUIObject {
 
     @FindBy(xpath = "//*[text()=' Products']")
     private ExtendedWebElement productsBtn;
-
+    @FindBy(xpath = "//*[text()=' Logged in as ']/b[text()='%s']")
+    private ExtendedWebElement messageAboutAccount;
     @FindBy(xpath = "//*[text()=' Cart']")
     private ExtendedWebElement cartBtn;
 
@@ -52,4 +53,7 @@ public class Menu extends AbstractUIObject {
         return new ContactUsPage(getDriver());
     }
 
+    public boolean isAccountDisplayed(String userName) {
+        return messageAboutAccount.format(userName).isElementPresent();
+    }
 }

@@ -5,8 +5,8 @@ import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class AddedPopUpPage extends AbstractPage {
-    public AddedPopUpPage(WebDriver driver) {
+public class AddedProductPopup extends AbstractPage {
+    public AddedProductPopup(WebDriver driver) {
         super(driver);
     }
 
