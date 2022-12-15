@@ -17,15 +17,15 @@ public class CartPage extends AbstractPage {
     @FindBy(xpath = "//*[@class='cart_quantity_delete']")
     private ExtendedWebElement xBtn;  //remove btn
 
-    @FindBy(xpath = "//tbody/tr")
-    private ExtendedWebElement itemsOnCard;
+    @FindBy(xpath = "//*[text()='%s']")
+    private ExtendedWebElement itemsOnCart;
 
     @FindBy(xpath = "//*[text()='Cart is empty!']")
     private ExtendedWebElement cartItemIsEmptyMessage;
 
 
-    public boolean isItemPresent() {
-        return itemsOnCard.isElementPresent();
+    public boolean isItemPresent(String product) {
+        return itemsOnCart.format(product).isElementPresent();
     }
 
     public boolean isCartEmpty() {

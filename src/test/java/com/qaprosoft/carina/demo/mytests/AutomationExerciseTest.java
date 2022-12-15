@@ -38,7 +38,7 @@ public class AutomationExerciseTest extends AbstractTest {
         Assert.assertTrue(addedProductPopup.isPageOpened(), "Page is not opened");
         addedProductPopup.clickContinueShoppingBtn();
         CartPage cartPage = productsPage.getMenu().clickToCartBtn();
-        Assert.assertTrue(cartPage.isItemPresent(), "Item is not exist");
+        Assert.assertTrue(cartPage.isItemPresent(product), "Item is not exist");
     }
 
     @Test
@@ -56,7 +56,7 @@ public class AutomationExerciseTest extends AbstractTest {
         Assert.assertTrue(addedProductPopup.isPageOpened(), "Page is not opened");
         addedProductPopup.clickContinueShoppingBtn();
         CartPage cartPage = homePage.getMenu().clickToCartBtn();
-        Assert.assertTrue(cartPage.isItemPresent(), "Item is not exist");
+        Assert.assertTrue(cartPage.isItemPresent(product), "Item is not exist");
         cartPage.clickXbtn();
         Assert.assertTrue(cartPage.isCartEmpty(), "Cart is not empty");
     }

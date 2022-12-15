@@ -6,32 +6,32 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class Products extends AbstractUIObject {
-    public Products(WebDriver driver) {
+public class Product extends AbstractUIObject {
+    public Product(WebDriver driver) {
         super(driver);
     }
 
-    public Products(WebDriver driver, SearchContext searchContext) {
+    public Product(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 
     @FindBy(xpath = "//*[text() ='%s']/ancestor::div[@class ='productinfo text-center'][1]")
     private ExtendedWebElement items;
 
-    @FindBy(xpath = "//*[text()='%s']/../../div[@class='product-overlay']/div/a")
+    @FindBy(xpath = "//*[text()='%s']/../../div[@class='product-overlay']/div//a[contains(@class, 'add-to-cart')]")
     private ExtendedWebElement addToCard;
 
 
-    public boolean isItemPresent(String products) {
-        return items.format(products).isElementPresent();
+    public boolean isItemPresent(String product) {
+        return items.format(product).isElementPresent();
     }
 
-    public void scrollToItem(String products) {
-        items.format(products).scrollTo();
+    public void scrollToItem(String product) {
+        items.format(product).scrollTo();
     }
 
-    public void hoverItem(String products) {
-        items.format(products).hover();
+    public void hoverItem(String product) {
+        items.format(product).hover();
     }
 
     public AddedProductPopup addToCard(String product) {

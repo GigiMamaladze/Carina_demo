@@ -3,14 +3,9 @@ package com.qaprosoft.carina.demo.gui.mytests.automation_excercise.pages;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.Menu;
-import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.Products;
-import org.json.XML;
-import org.openqa.selenium.By;
+import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.Product;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
-import org.testng.annotations.Test;
-
-import java.util.List;
 
 public class HomePage extends AbstractPage {
     public HomePage(WebDriver driver) {
@@ -33,7 +28,7 @@ public class HomePage extends AbstractPage {
     private ExtendedWebElement bannerPageRightSwiper;
 
     @FindBy(xpath = "//*[@class='col-sm-9 padding-right']")
-    private Products products;
+    private Product product;
 
     public boolean isSecondBannerVisible() {
         return secondBanner.isVisible();
@@ -43,8 +38,8 @@ public class HomePage extends AbstractPage {
         return firstBanner.isVisible();
     }
 
-    public Products getProducts() {
-        return products;
+    public Product getProducts() {
+        return product;
     }
 
     @Override
