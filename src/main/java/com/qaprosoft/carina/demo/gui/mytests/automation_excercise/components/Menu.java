@@ -10,7 +10,7 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class Menu extends AbstractUIObject{
+public class Menu extends AbstractUIObject {
 
     @FindBy(xpath = "//*[text()=' Signup / Login']")
     private ExtendedWebElement singUpLogInBtn;
@@ -32,22 +32,22 @@ public class Menu extends AbstractUIObject{
         super(driver, searchContext);
     }
 
-    public SingUpLogInPage clickSingUpLogInBtn(){
+    public SingUpLogInPage clickSingUpLogInBtn() {
         singUpLogInBtn.click();
         return new SingUpLogInPage(getDriver());
     }
 
-    public ProductsPage clickProductsBtn(){
+    public ProductsPage clickProductsBtn() {
         productsBtn.click();
         return new ProductsPage(getDriver());
     }
 
-    public CartPage clickToCartBtn(){
+    public CartPage clickToCartBtn() {
         cartBtn.click();
         return new CartPage(getDriver());
     }
 
-    public ContactUsPage clickToContactUsBtn(){
+    public ContactUsPage clickToContactUsBtn() {
         contactUsBtn.click();
         return new ContactUsPage(getDriver());
     }

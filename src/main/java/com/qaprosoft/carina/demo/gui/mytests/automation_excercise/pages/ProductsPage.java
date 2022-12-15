@@ -4,31 +4,32 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.AddedPopUpPage;
 import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.Menu;
+import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.Products;
+import com.qaprosoft.carina.demo.gui_enums.automation_excercise.products.ProductsEnum;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.List;
 
 public class ProductsPage extends AbstractPage {
     public ProductsPage(WebDriver driver) {
         super(driver);
     }
-    @FindBy(xpath = "//*[@class='features_items']/*[@class='col-sm-4']")
-    private List<ExtendedWebElement> items;
 
-    @FindBy(xpath = "//*[@class='features_items']/*[@class='col-sm-4']//*[text()='Add to cart']")
-    private List<ExtendedWebElement> addToCard;
+    @FindBy(xpath = "//*[text()='All Products']")
+    private ExtendedWebElement allProductsMessage;
 
     @FindBy(xpath = "//*[@class='nav navbar-nav']")
     private Menu menu;
 
-    public AddedPopUpPage addToCard(){
-            items.get(0).scrollTo();
-            items.get(0).hover();
-            addToCard.get(1).click();
-            pause(1);
-            return new AddedPopUpPage(getDriver());
+    @FindBy(xpath = "//*[@class='col-sm-9 padding-right']")
+    private Products products;
 
+    @Override
+    public boolean isPageOpened() {
+        return allProductsMessage.isElementPresent();
+    }
+
+    public Products getProducts() {
+        return products;
     }
 
     public Menu getMenu() {

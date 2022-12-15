@@ -29,15 +29,16 @@ public class SingUpLogInPage extends AbstractPage {
         return emailTextField.isElementPresent();
     }
 
-    public void typeEmail(String email){
+    public void typeEmail(String email) {
         emailTextField.type(email);
     }
 
-    public void typePassword(String password){
+    public void typePassword(String password) {
         passwordTextField.type(password);
     }
 
-    public void clickLogInBtn(){
+    public LoggedAccountPage clickLogInBtn() {
         logInBtn.click();
+        return new LoggedAccountPage(getDriver());
     }
 }

@@ -18,7 +18,7 @@ public class AddedPopUpPage extends AbstractPage {
         return continueShoppingBtn.isElementPresent();
     }
 
-    public void clickContinueShoppingBtn(){
+    public void clickContinueShoppingBtn() {
         continueShoppingBtn.click();
     }
 }

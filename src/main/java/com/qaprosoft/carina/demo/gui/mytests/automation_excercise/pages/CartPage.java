@@ -14,11 +14,26 @@ public class CartPage extends AbstractPage {
     @FindBy(xpath = "//*[@class='nav navbar-nav']")
     private Menu menu;
 
-   @FindBy(xpath = "//*[@class='cart_quantity_delete']")
-    private ExtendedWebElement xBtn;                   //remove btn
+    @FindBy(xpath = "//*[@class='cart_quantity_delete']")
+    private ExtendedWebElement xBtn;  //remove btn
 
-   public void clickXbtn(){
-       xBtn.click();
-   }
+    @FindBy(xpath = "//tbody/tr")
+    private ExtendedWebElement itemsOnCard;
+
+    @FindBy(xpath = "//*[text()='Cart is empty!']")
+    private ExtendedWebElement cartItemIsEmptyMessage;
+
+
+    public boolean isItemPresent() {
+        return itemsOnCard.isElementPresent();
+    }
+
+    public boolean isCartEmpty() {
+        return cartItemIsEmptyMessage.isElementPresent();
+    }
+
+    public void clickXbtn() {
+        xBtn.click();
+    }
 
 }
