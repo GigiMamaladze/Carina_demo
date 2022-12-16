@@ -4,6 +4,11 @@ import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.R;
 import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.AddedProductPopup;
 import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.pages.*;
+import com.qaprosoft.carina.demo.gui_enums.automation_excercise.Brands;
+import com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories.Categories;
+import com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories.subcategories.KidsSubCategory;
+import com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories.subcategories.MenSubCategories;
+import com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories.subcategories.WomenSubCategories;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -89,6 +94,74 @@ public class AutomationExerciseTest extends AbstractTest {
         pause(5);
         contactUsPage.getDriver().switchTo().alert().accept();
 
+    }
+
+    //------------------------------------------Second Task------------------------------------------------
+    @Test
+    public void checkSearchTest() {
+        HomePage homePage = new HomePage(getDriver());
+        homePage.open();
+        Assert.assertTrue(homePage.isPageOpened(), "Page is not opened");
+        ProductsPage productsPage = homePage.getMenu().clickProductsBtn();
+        Assert.assertTrue(productsPage.isPageOpened(), "Page is not opened");
+        String product = "Blue Top";
+        productsPage.typeProduct(product);
+        productsPage.clickSearchBtnIcon();
+        Assert.assertTrue(productsPage.getProducts().isItemPresent(product), "Product is not found");
+    }
+
+    @Test
+    public void checkProductDetailsPageTest() {
+        HomePage homePage = new HomePage(getDriver());
+        homePage.open();
+        Assert.assertTrue(homePage.isPageOpened(), "Page is not opened");
+        String product = "Blue Top";
+        Assert.assertTrue(homePage.getProducts().isItemPresent(product), "item is not exist");
+        homePage.getProducts().scrollToItem(product);
+        ProductDetailsPage productDetailsPage = homePage.getProducts().clickOnViewProductButton();
+        Assert.assertTrue(productDetailsPage.isProductDetailsPageOpened(product), "Product details page is not opened");
+    }
+
+    @Test
+    public void checkCategoriesTest() {
+        HomePage homePage = new HomePage(getDriver());
+        homePage.open();
+        Assert.assertTrue(homePage.isPageOpened(), "Page is not opened");
+        for (Categories c : Categories.values()) {
+            homePage.getCategoriesMenu().scrollToCategoriesList(c);
+            homePage.getCategoriesMenu().clickOnCategory(c);
+            if (c.getCategory().equals("Women")) {
+                for (WomenSubCategories w : WomenSubCategories.values()) {
+                    homePage.getCategoriesMenu().clickWomenSubCategory(w);
+                    homePage.getCategoriesMenu().clickOnCategory(c);
+                }
+            }
+            if (c.getCategory().equals("Men")) {
+                for (MenSubCategories m : MenSubCategories.values()) {
+                    homePage.getCategoriesMenu().clickMenSubCategory(m);
+                    homePage.getCategoriesMenu().clickOnCategory(c);
+                }
+            }
+            if (c.getCategory().equals("Kids")) {
+                for (KidsSubCategory k : KidsSubCategory.values()) {
+                    homePage.getCategoriesMenu().clickKidsSubCategory(k);
+                    homePage.getCategoriesMenu().clickOnCategory(c);
+                }
+            }
+
+        }
+    }
+
+    @Test
+    public void checkBrandsTest() {
+        HomePage homePage = new HomePage(getDriver());
+        homePage.open();
+        Assert.assertTrue(homePage.isPageOpened(), "Page is not opened");
+        for (Brands c : Brands.values()) {
+            homePage.getBrandsMenu().scrollToBrand(c);
+            BrandPage brandPage = homePage.getBrandsMenu().clickBrands(c);
+            Assert.assertTrue(brandPage.isBrandPageOpened(c), "Brand page is not opened");
+        }
     }
 
 

@@ -2,6 +2,7 @@ package com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
+import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.pages.ProductDetailsPage;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -21,6 +22,9 @@ public class Product extends AbstractUIObject {
     @FindBy(xpath = "//*[text()='%s']/../../div[@class='product-overlay']/div//a[contains(@class, 'add-to-cart')]")
     private ExtendedWebElement addToCard;
 
+    @FindBy(xpath = "//*[text()='View Product']")
+    private ExtendedWebElement viewProductBtn;
+
 
     public boolean isItemPresent(String product) {
         return items.format(product).isElementPresent();
@@ -37,6 +41,11 @@ public class Product extends AbstractUIObject {
     public AddedProductPopup addToCard(String product) {
         addToCard.format(product).click();
         return new AddedProductPopup(getDriver());
+    }
+
+    public ProductDetailsPage clickOnViewProductButton() {
+        viewProductBtn.click();
+        return new ProductDetailsPage(getDriver());
     }
 
 

@@ -2,6 +2,8 @@ package com.qaprosoft.carina.demo.gui.mytests.automation_excercise.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
+import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.BrandsMenu;
+import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.CategoriesMenu;
 import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.Menu;
 import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.Product;
 import org.openqa.selenium.WebDriver;
@@ -29,6 +31,20 @@ public class HomePage extends AbstractPage {
 
     @FindBy(xpath = "//*[@class='col-sm-9 padding-right']")
     private Product product;
+
+    @FindBy(xpath = "//*[@class='panel-group category-products']")
+    private CategoriesMenu categoriesMenu;
+
+    @FindBy(xpath = "//*[@class='brands-name']")
+    private BrandsMenu brandsMenu;
+
+    public CategoriesMenu getCategoriesMenu() {
+        return categoriesMenu;
+    }
+
+    public BrandsMenu getBrandsMenu() {
+        return brandsMenu;
+    }
 
     public boolean isSecondBannerVisible() {
         return secondBanner.isVisible();
