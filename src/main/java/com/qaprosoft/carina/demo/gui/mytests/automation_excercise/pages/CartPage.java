@@ -23,6 +23,9 @@ public class CartPage extends AbstractPage {
     @FindBy(xpath = "//*[text()='Cart is empty!']")
     private ExtendedWebElement cartItemIsEmptyMessage;
 
+    @FindBy(xpath = "//*[text()='Proceed To Checkout']")
+    private ExtendedWebElement proceedToCheckoutBtn;
+
 
     public boolean isItemPresent(String product) {
         return itemsOnCart.format(product).isElementPresent();
@@ -34,6 +37,11 @@ public class CartPage extends AbstractPage {
 
     public void clickXbtn() {
         xBtn.click();
+    }
+
+    public CheckOutPage clickProceedToCheckOutBtn() {
+        proceedToCheckoutBtn.click();
+        return new CheckOutPage(getDriver());
     }
 
 }

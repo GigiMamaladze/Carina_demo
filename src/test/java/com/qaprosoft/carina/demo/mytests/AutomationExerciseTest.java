@@ -165,4 +165,42 @@ public class AutomationExerciseTest extends AbstractTest {
     }
 
 
+    @Test
+    public void checkProductOrderTest() {
+        HomePage homePage = new HomePage(getDriver());
+        homePage.open();
+        Assert.assertTrue(homePage.isPageOpened(), "Page is not opened");
+        SingUpLogInPage singUpLogInPage = homePage.getMenu().clickSingUpLogInBtn();
+        Assert.assertTrue(singUpLogInPage.isPageOpened(), "Page is not opened");
+        singUpLogInPage.typeEmail(R.TESTDATA.get("email"));
+        singUpLogInPage.typePassword(R.TESTDATA.get("password"));
+        singUpLogInPage.clickLogInBtn();
+        Assert.assertTrue(homePage.getMenu().isAccountDisplayed(R.TESTDATA.get("userName")), "Account is not displayed");
+        String product = "Blue Top";
+        Assert.assertTrue(homePage.getProducts().isItemPresent(product), "item is not exist");
+        homePage.getProducts().scrollToItem(product);
+        homePage.getProducts().hoverItem(product);
+        AddedProductPopup addedProductPopup = homePage.getProducts().addToCard(product);
+        Assert.assertTrue(addedProductPopup.isPageOpened(), "Page is not opened");
+        addedProductPopup.clickContinueShoppingBtn();
+        CartPage cartPage = homePage.getMenu().clickToCartBtn();
+        Assert.assertTrue(cartPage.isItemPresent(product), "Item is not exist");
+        CheckOutPage checkOutPage = cartPage.clickProceedToCheckOutBtn();
+        Assert.assertTrue(checkOutPage.isPageOpened(), "Check out page is not opened");
+        checkOutPage.scrollToPlaceOrderBtn();
+        Assert.assertTrue(checkOutPage.isProductPresent(product), "Product is not present");
+        PaymentPage paymentPage = checkOutPage.clickToPlaceOrderBtn();
+        Assert.assertTrue(paymentPage.isPageOpened(), "Page is not opened");
+        paymentPage.typeNameOnCard(R.TESTDATA.get("nameOnCard"));
+        paymentPage.typeCardNumber(Integer.parseInt(R.TESTDATA.get("cardNumber")));
+        paymentPage.typeCvc(Integer.parseInt(R.TESTDATA.get("cvc")));
+        paymentPage.typeMonth(Integer.parseInt(R.TESTDATA.get("month")));
+        paymentPage.typeYear(Integer.parseInt(R.TESTDATA.get("year")));
+        paymentPage.scrollToSubmitBtn();
+        PaymentDonePage paymentDonePage = paymentPage.clickSubmitBtn();
+        Assert.assertTrue(paymentDonePage.isPageOpened(), "Page is not opened");
+
+    }
+
+
 }
