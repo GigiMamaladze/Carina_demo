@@ -11,6 +11,7 @@ public class BrandPage extends AbstractPage {
         super(driver);
     }
 
+
     @FindBy(xpath = "//*[@class='features_items']/h2[contains(text(),'Brand - %s Products')]")
     private ExtendedWebElement brandInfo;
 

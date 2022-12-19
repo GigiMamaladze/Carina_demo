@@ -56,4 +56,8 @@ public class Menu extends AbstractUIObject {
     public boolean isAccountDisplayed(String userName) {
         return messageAboutAccount.format(userName).isElementPresent();
     }
+
+    public void scrollToCartBtn() {
+        cartBtn.scrollTo();
+    }
 }

@@ -12,6 +12,7 @@ import com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories.subca
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+
 public class AutomationExerciseTest extends AbstractTest {
 
 
@@ -132,19 +133,22 @@ public class AutomationExerciseTest extends AbstractTest {
             homePage.getCategoriesMenu().clickOnCategory(c);
             if (c.getCategory().equals("Women")) {
                 for (WomenSubCategories w : WomenSubCategories.values()) {
-                    homePage.getCategoriesMenu().clickWomenSubCategory(w);
-                    homePage.getCategoriesMenu().clickOnCategory(c);
+                    CategoryItemPage womencategoryItemPage = homePage.getCategoriesMenu().clickWomenSubCategory(w);
+                    Assert.assertTrue(womencategoryItemPage.isWomanCategoriesItemPageOpened(w), "Women categories item page is not opened");
+                    womencategoryItemPage.getCategoriesMenu().clickOnCategory(c);
                 }
             }
             if (c.getCategory().equals("Men")) {
                 for (MenSubCategories m : MenSubCategories.values()) {
-                    homePage.getCategoriesMenu().clickMenSubCategory(m);
-                    homePage.getCategoriesMenu().clickOnCategory(c);
+                    CategoryItemPage menCategoryItemPage = homePage.getCategoriesMenu().clickMenSubCategory(m);
+                    Assert.assertTrue(menCategoryItemPage.isMenCategoriesItemPageOpened(m), "Men categories item page is not opened");
+                    menCategoryItemPage.getCategoriesMenu().clickOnCategory(c);
                 }
             }
             if (c.getCategory().equals("Kids")) {
                 for (KidsSubCategory k : KidsSubCategory.values()) {
-                    homePage.getCategoriesMenu().clickKidsSubCategory(k);
+                    CategoryItemPage kidCategoryItemPage = homePage.getCategoriesMenu().clickKidsSubCategory(k);
+                    Assert.assertTrue(kidCategoryItemPage.isKidsCategoriesPageOpened(k), "Kids categories item page is not opened");
                     homePage.getCategoriesMenu().clickOnCategory(c);
                 }
             }
@@ -183,6 +187,7 @@ public class AutomationExerciseTest extends AbstractTest {
         AddedProductPopup addedProductPopup = homePage.getProducts().addToCard(product);
         Assert.assertTrue(addedProductPopup.isPageOpened(), "Page is not opened");
         addedProductPopup.clickContinueShoppingBtn();
+        homePage.getMenu().scrollToCartBtn();
         CartPage cartPage = homePage.getMenu().clickToCartBtn();
         Assert.assertTrue(cartPage.isItemPresent(product), "Item is not exist");
         CheckOutPage checkOutPage = cartPage.clickProceedToCheckOutBtn();
@@ -201,6 +206,5 @@ public class AutomationExerciseTest extends AbstractTest {
         Assert.assertTrue(paymentDonePage.isPageOpened(), "Page is not opened");
 
     }
-
 
 }

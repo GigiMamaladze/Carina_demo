@@ -2,6 +2,7 @@ package com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
+import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.pages.CategoryItemPage;
 import com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories.Categories;
 import com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories.subcategories.KidsSubCategory;
 import com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories.subcategories.MenSubCategories;
@@ -42,16 +43,19 @@ public class CategoriesMenu extends AbstractUIObject {
         categoriesList.format(category.getCategory()).click();
     }
 
-    public void clickWomenSubCategory(WomenSubCategories womenSubCategories) {
+    public CategoryItemPage clickWomenSubCategory(WomenSubCategories womenSubCategories) {
         womenSubCategoriesList.format(womenSubCategories.getSubCategories()).click();
+        return new CategoryItemPage(getDriver());
     }
 
-    public void clickMenSubCategory(MenSubCategories menSubCategories) {
+    public CategoryItemPage clickMenSubCategory(MenSubCategories menSubCategories) {
         menSubCategoriesList.format(menSubCategories.getSubCategories()).click();
+        return new CategoryItemPage(getDriver());
     }
 
-    public void clickKidsSubCategory(KidsSubCategory kidsSubCategory) {
+    public CategoryItemPage clickKidsSubCategory(KidsSubCategory kidsSubCategory) {
         kidsSubCategoriesList.format(kidsSubCategory.getSubCategory()).click();
+        return new CategoryItemPage(getDriver());
     }
 
 
