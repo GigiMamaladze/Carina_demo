@@ -9,6 +9,8 @@ import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.Pro
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class HomePage extends AbstractPage {
     public HomePage(WebDriver driver) {
         super(driver);
@@ -22,10 +24,8 @@ public class HomePage extends AbstractPage {
     @FindBy(xpath = "//*[@class ='left control-carousel hidden-xs']")
     private ExtendedWebElement bannerPageLeftSwiper;
 
-    @FindBy(xpath = "//*[@class='carousel-inner']/div[1]")
-    private ExtendedWebElement firstBanner;
-    @FindBy(xpath = "//*[@class='carousel-inner']/div[2]")
-    private ExtendedWebElement secondBanner;
+    @FindBy(xpath = "//*[@class='carousel-inner']/div[contains(@class, item)][%d]")
+    private ExtendedWebElement banners;
     @FindBy(xpath = "//*[@class ='right control-carousel hidden-xs']")
     private ExtendedWebElement bannerPageRightSwiper;
 
@@ -46,12 +46,8 @@ public class HomePage extends AbstractPage {
         return brandsMenu;
     }
 
-    public boolean isSecondBannerVisible() {
-        return secondBanner.isVisible();
-    }
-
-    public boolean isFirstBannerVisible() {
-        return firstBanner.isVisible();
+    public boolean isBannerChanged(int i) {
+        return banners.format(i).isVisible();
     }
 
     public Product getProducts() {

@@ -42,20 +42,20 @@ public class PaymentPage extends AbstractPage {
         nameOnCardTextField.type(nameOnCard);
     }
 
-    public void typeCardNumber(int cardNumber) {
-        cardNumberTextField.type(String.valueOf(cardNumber));
+    public void typeCardNumber(String cardNumber) {
+        cardNumberTextField.type(cardNumber);
     }
 
-    public void typeCvc(int cvc) {
-        cvcTextField.type(String.valueOf(cvc));
+    public void typeCvc(String cvc) {
+        cvcTextField.type(cvc);
     }
 
-    public void typeMonth(int month) {
-        monthTextField.type(String.valueOf(month));
+    public void typeMonth(String month) {
+        monthTextField.type(month);
     }
 
-    public void typeYear(int year) {
-        yearTextField.type(String.valueOf(year));
+    public void typeYear(String year) {
+        yearTextField.type(year);
     }
 
     public void scrollToSubmitBtn() {

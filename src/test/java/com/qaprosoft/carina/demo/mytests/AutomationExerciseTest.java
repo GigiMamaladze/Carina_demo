@@ -18,7 +18,7 @@ public class AutomationExerciseTest extends AbstractTest {
 
 
     @Test
-    public void LogInTest() {
+    public void loginTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Page is not opened");
@@ -62,6 +62,7 @@ public class AutomationExerciseTest extends AbstractTest {
         AddedProductPopup addedProductPopup = homePage.getProducts().addToCard(product);
         Assert.assertTrue(addedProductPopup.isPageOpened(), "Page is not opened");
         addedProductPopup.clickContinueShoppingBtn();
+        homePage.getMenu().scrollToCartBtn();
         CartPage cartPage = homePage.getMenu().clickToCartBtn();
         Assert.assertTrue(cartPage.isItemPresent(product), "Item is not exist");
         cartPage.clickXbtn();
@@ -74,13 +75,13 @@ public class AutomationExerciseTest extends AbstractTest {
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Page is not opened");
         homePage.clickRightSwiper();
-        Assert.assertTrue(homePage.isSecondBannerVisible(), "Second Banner is not visible");
+        Assert.assertTrue(homePage.isBannerChanged(2), "Second Banner is not visible");
         homePage.clickLeftSwiper();
-        Assert.assertTrue(homePage.isFirstBannerVisible(), "First banner is not visible");
+        Assert.assertTrue(homePage.isBannerChanged(1), "First banner is not visible");
     }
 
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void checkContactUsTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
@@ -91,7 +92,7 @@ public class AutomationExerciseTest extends AbstractTest {
         contactUsPage.typeEmail("Gigi@sd");
         contactUsPage.typeSubject("Ads");
         contactUsPage.typeMessage("Hello world");
-        contactUsPage.uploadFile("/Users/gigimamaladze/Desktop/Screenshot 2022-12-15 at 11.21.05.png");
+        contactUsPage.uploadFile("/Users/gigimamaladze/IdeaProjects/Carina_demo/src/test/resources/image.png");
         contactUsPage.clickSubmitBtn();
         pause(5);
         contactUsPage.getDriver().switchTo().alert().accept();
@@ -199,10 +200,10 @@ public class AutomationExerciseTest extends AbstractTest {
         PaymentPage paymentPage = checkOutPage.clickToPlaceOrderBtn();
         Assert.assertTrue(paymentPage.isPageOpened(), "Page is not opened");
         paymentPage.typeNameOnCard(R.TESTDATA.get("nameOnCard"));
-        paymentPage.typeCardNumber(Integer.parseInt(R.TESTDATA.get("cardNumber")));
-        paymentPage.typeCvc(Integer.parseInt(R.TESTDATA.get("cvc")));
-        paymentPage.typeMonth(Integer.parseInt(R.TESTDATA.get("month")));
-        paymentPage.typeYear(Integer.parseInt(R.TESTDATA.get("year")));
+        paymentPage.typeCardNumber(R.TESTDATA.get("cardNumber"));
+        paymentPage.typeCvc(R.TESTDATA.get("cvc"));
+        paymentPage.typeMonth(R.TESTDATA.get("month"));
+        paymentPage.typeYear(R.TESTDATA.get("year"));
         paymentPage.scrollToSubmitBtn();
         PaymentDonePage paymentDonePage = paymentPage.clickSubmitBtn();
         Assert.assertTrue(paymentDonePage.isPageOpened(), "Page is not opened");
