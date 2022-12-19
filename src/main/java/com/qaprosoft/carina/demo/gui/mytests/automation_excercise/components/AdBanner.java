@@ -22,7 +22,7 @@ public class AdBanner extends AbstractUIObject {
     private ExtendedWebElement dismissButton;
 
     public boolean isBannerPresent() {
-        return banner.isVisible();
+        return banner.isElementPresent(5);
     }
 
     public void clickDismissBtn() {

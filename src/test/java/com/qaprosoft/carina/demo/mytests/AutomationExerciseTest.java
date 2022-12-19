@@ -4,6 +4,7 @@ import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.R;
 import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.AddedProductPopup;
 import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.pages.*;
+import com.qaprosoft.carina.demo.gui_components.gui_utils.AdBannerUtil;
 import com.qaprosoft.carina.demo.gui_enums.automation_excercise.Brands;
 import com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories.Categories;
 import com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories.subcategories.KidsSubCategory;
@@ -134,6 +135,7 @@ public class AutomationExerciseTest extends AbstractTest {
             if (c.getCategory().equals("Women")) {
                 for (WomenSubCategories w : WomenSubCategories.values()) {
                     CategoryItemPage womencategoryItemPage = homePage.getCategoriesMenu().clickWomenSubCategory(w);
+                    AdBannerUtil.adBannerHandler(womencategoryItemPage.getDriver());
                     Assert.assertTrue(womencategoryItemPage.isWomanCategoriesItemPageOpened(w), "Women categories item page is not opened");
                     womencategoryItemPage.getCategoriesMenu().clickOnCategory(c);
                 }
