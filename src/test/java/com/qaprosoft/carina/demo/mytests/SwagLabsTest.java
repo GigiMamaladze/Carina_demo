@@ -2,7 +2,7 @@ package com.qaprosoft.carina.demo.mytests;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.R;
-import com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.common.*;
+import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

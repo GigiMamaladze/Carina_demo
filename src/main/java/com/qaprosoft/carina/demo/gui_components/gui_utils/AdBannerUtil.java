@@ -1,6 +1,6 @@
 package com.qaprosoft.carina.demo.gui_components.gui_utils;
 
-import com.qaprosoft.carina.demo.gui.mytests.automation_excercise.components.AdBanner;
+import com.qaprosoft.carina.demo.gui.automation_excercise.components.AdBanner;
 import org.openqa.selenium.WebDriver;
 
 import static com.zebrunner.agent.core.webdriver.RemoteWebDriverFactory.getDriver;

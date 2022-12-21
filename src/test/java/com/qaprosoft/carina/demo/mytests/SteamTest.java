@@ -2,17 +2,12 @@ package com.qaprosoft.carina.demo.mytests;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
-import com.qaprosoft.carina.demo.gui.mytests.steam.pages.SteamGuardPage;
-import com.qaprosoft.carina.demo.gui.mytests.steam.components.CardPayment;
-import com.qaprosoft.carina.demo.gui.mytests.steam.components.PaymentMethodLists;
-import com.qaprosoft.carina.demo.gui.mytests.steam.pages.*;
+import com.qaprosoft.carina.demo.gui.steam.pages.*;
+import com.qaprosoft.carina.demo.gui.steam.components.CardPayment;
+import com.qaprosoft.carina.demo.gui.steam.components.PaymentMethodLists;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
 
 import static org.testng.Assert.assertTrue;
 
@@ -40,35 +35,32 @@ public class SteamTest extends AbstractTest {
 
     @Test
     @MethodOwner(owner = "Gigi")
-    public void testForBuyGameAllAge(){
+    public void testForBuyGameAllAge() {
         SteamHomePage steamHomePage = new SteamHomePage(getDriver());
         steamHomePage.open();
-        assertTrue(steamHomePage.isSearchPresent(),"Home Page is not Exsit");
+        assertTrue(steamHomePage.isSearchPresent(), "Home Page is not Exsit");
 
 
-        SearchedGamesPage searchedGamesPage =steamHomePage.searchGame("Fifa");
-        assertTrue(searchedGamesPage.isGamePresent(),"Searched Page is not Exsit");
-
+        SearchedGamesPage searchedGamesPage = steamHomePage.searchGame("Fifa");
+        assertTrue(searchedGamesPage.isGamePresent(), "Searched Page is not Exsit");
 
 
         ChosenGamePage chosenGamePage = searchedGamesPage.clickSearchedGame();
-        assertTrue(chosenGamePage.isAddToCartBtnPresent(),"Game is Not Exsit");
-
-
+        assertTrue(chosenGamePage.isAddToCartBtnPresent(), "Game is Not Exsit");
 
 
         BuyGamePage buyGamePage = chosenGamePage.clickAddToCartBtn();
-        assertTrue(buyGamePage.isPurchaseForMyselfBtnPresent(),"Purchase For MySelf Button not Exsit");
+        assertTrue(buyGamePage.isPurchaseForMyselfBtnPresent(), "Purchase For MySelf Button not Exsit");
 
 
         UserSignInPage userSignInPage = buyGamePage.clickPurchaseForMyselfBtn();
-        assertTrue(userSignInPage.isAccountNameExist(),"Account Name box is not Exsit");
-        assertTrue(userSignInPage.isPasswordExist(),"Account Name box is not Exsit");
-        assertTrue(userSignInPage.isSignInBtnExist(),"Account Name box is not Exsit");
-        assertTrue(userSignInPage.isRememberMeBtnExsit(),"Remember btn is not Exsit");
+        assertTrue(userSignInPage.isAccountNameExist(), "Account Name box is not Exsit");
+        assertTrue(userSignInPage.isPasswordExist(), "Account Name box is not Exsit");
+        assertTrue(userSignInPage.isSignInBtnExist(), "Account Name box is not Exsit");
+        assertTrue(userSignInPage.isRememberMeBtnExsit(), "Remember btn is not Exsit");
         pause(2);
 
-        SteamGuardPage steamGuardPage = userSignInPage.signIn("testapp13","fortest1234");
+        SteamGuardPage steamGuardPage = userSignInPage.signIn("testapp13", "fortest1234");
         pause(2);
 
         assertTrue(steamGuardPage.isCodePageExsit(), "Code Page is not Exsit");
@@ -79,12 +71,12 @@ public class SteamTest extends AbstractTest {
         pause(2);
 
         PaymentMethodLists paymentMethodLists = paymentProcessHomePage.choosingPaymentMethod();
-        assertTrue(paymentMethodLists.isVisaBtnExsit(),"VisaBtn is not Exsit");
+        assertTrue(paymentMethodLists.isVisaBtnExsit(), "VisaBtn is not Exsit");
         pause(2);
 
-        CardPayment cardPayment =paymentMethodLists.choosePaymentMethod();
-        cardPayment.fillFields(1231245L,"Gigi","Mamaladze","batumi",111,"benze","Benze",12,5912331);
-        assertTrue(paymentMethodLists.isVisaBtnExsit(),"VisaBtn is not Exsit");
+        CardPayment cardPayment = paymentMethodLists.choosePaymentMethod();
+        cardPayment.fillFields(1231245L, "Gigi", "Mamaladze", "batumi", 111, "benze", "Benze", 12, 5912331);
+        assertTrue(paymentMethodLists.isVisaBtnExsit(), "VisaBtn is not Exsit");
         pause(5);
 
     }
@@ -125,7 +117,7 @@ public class SteamTest extends AbstractTest {
         assertTrue(userSignInPage.isRememberMeBtnExsit(), "Remember btn is not Exsit");
         pause(2);
 
-        SteamGuardPage steamGuardPage = userSignInPage.signIn("testapp13","fortest1234");
+        SteamGuardPage steamGuardPage = userSignInPage.signIn("testapp13", "fortest1234");
         assertTrue(steamGuardPage.isCodePageExsit(), "Code Page is not Exsit");
         pause(20);
 
@@ -134,11 +126,11 @@ public class SteamTest extends AbstractTest {
         pause(2);
 
         PaymentMethodLists paymentMethodLists = paymentProcessHomePage.choosingPaymentMethod();
-        assertTrue(paymentMethodLists.isVisaBtnExsit(),"VisaBtn is not Exsit");
+        assertTrue(paymentMethodLists.isVisaBtnExsit(), "VisaBtn is not Exsit");
         pause(2);
 
-        CardPayment cardPayment =paymentMethodLists.choosePaymentMethod();
-        cardPayment.fillFields(1231245L,"Gigi","Mamaladze","batumi",111,"benze","Benze",12,5912331);
+        CardPayment cardPayment = paymentMethodLists.choosePaymentMethod();
+        cardPayment.fillFields(1231245L, "Gigi", "Mamaladze", "batumi", 111, "benze", "Benze", 12, 5912331);
         pause(5);
     }
 }
