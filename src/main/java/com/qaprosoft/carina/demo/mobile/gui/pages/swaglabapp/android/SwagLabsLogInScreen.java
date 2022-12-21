@@ -24,7 +24,7 @@ public class SwagLabsLogInScreen extends SwagLabsLogInScreenBase {
     private ExtendedWebElement logInBtn;
 
     @Override
-    public boolean isScreenOpened() {
+    public boolean isOpened() {
         return logInBtn.isElementPresent();
     }
 

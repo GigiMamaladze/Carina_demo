@@ -13,7 +13,7 @@ public abstract class CheckoutScreenBase extends AbstractMobilePageBase {
 
     public abstract void typeZipcode(String zipCode);
 
-    public abstract OverviewScreenBase clickContinueBtn();
+    public abstract CheckoutOverviewScreenBase clickContinueBtn();
 
 
 }

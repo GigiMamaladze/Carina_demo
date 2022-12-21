@@ -1,29 +1,32 @@
-package com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.android;
+package com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.ios;
 
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.core.foundation.webdriver.decorator.annotations.ClassChain;
+import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.common.CompleteScreenBase;
-import com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.common.OverviewScreenBase;
+import com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.common.CheckoutOverviewScreenBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = OverviewScreenBase.class)
-public class OverviewScreen extends OverviewScreenBase {
-    public OverviewScreen(WebDriver driver) {
+
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = CheckoutOverviewScreenBase.class)
+public class CheckoutOverviewScreen extends CheckoutOverviewScreenBase {
+    public CheckoutOverviewScreen(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='test-Description']/android.widget.TextView[contains(@text,'%s')]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label =='%s'`]")
     private ExtendedWebElement productName;
 
-    @FindBy(xpath = "//android.widget.TextView[contains(@text,'CHECKOUT: OVERVIEW')]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == 'CHECKOUT: OVERVIEW'`]")
     private ExtendedWebElement titleOfOverviewScreen;
 
-    @FindBy(id = "test-FINISH")
+    @ExtendedFindBy(accessibilityId = "test-FINISH")
     private ExtendedWebElement finishBtn;
 
     @Override
-    public boolean isScreenOpened() {
+    public boolean isOpened() {
         return titleOfOverviewScreen.isElementPresent();
     }
 
@@ -33,12 +36,8 @@ public class OverviewScreen extends OverviewScreenBase {
     }
 
     @Override
-    public void scrollToFinishBtn() {
-        finishBtn.scrollTo();
-    }
-
-    @Override
     public CompleteScreenBase clickFinishBtn() {
+        swipe(finishBtn);
         finishBtn.click();
         return initPage(getDriver(), CompleteScreenBase.class);
     }

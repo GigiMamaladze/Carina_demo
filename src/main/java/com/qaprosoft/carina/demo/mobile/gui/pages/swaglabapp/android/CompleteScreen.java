@@ -16,7 +16,7 @@ public class CompleteScreen extends CompleteScreenBase {
     private ExtendedWebElement titleOfCheckoutScreen;
 
     @Override
-    public boolean isScreenOpened() {
+    public boolean isOpened() {
         return titleOfCheckoutScreen.isElementPresent();
     }
 

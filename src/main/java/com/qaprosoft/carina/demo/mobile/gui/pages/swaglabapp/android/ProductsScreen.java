@@ -19,12 +19,12 @@ public class ProductsScreen extends ProductsScreenBase {
     private ExtendedWebElement productList;
 
     @Override
-    public boolean isScreenOpened() {
+    public boolean isOpened() {
         return productsTitle.isElementPresent();
     }
 
     @Override
-    public void clickOnAddToCartBtn(String product) {
+    public void clickAddToCartBtn(String product) {
         productList.format(product).click();
     }
 }

@@ -2,6 +2,7 @@ package com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.ios;
 
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.common.ProductsScreenBase;
 import com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.common.SwagLabsLogInScreenBase;
 import org.openqa.selenium.WebDriver;
@@ -14,17 +15,17 @@ public class SwagLabsLogInScreen extends SwagLabsLogInScreenBase {
     }
 
 
-    @FindBy(id = "test-Username")
+    @ExtendedFindBy(accessibilityId = "test-Username")
     private ExtendedWebElement userNameTextField;
 
-    @FindBy(id = "test-Password")
+    @ExtendedFindBy(accessibilityId = "test-Password")
     private ExtendedWebElement passwordTextField;
 
-    @FindBy(id = "test-LOGIN")
+    @ExtendedFindBy(accessibilityId = "test-LOGIN")
     private ExtendedWebElement logInBtn;
 
     @Override
-    public boolean isScreenOpened() {
+    public boolean isOpened() {
         return logInBtn.isElementPresent();
     }
 

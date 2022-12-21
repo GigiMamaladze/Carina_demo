@@ -7,7 +7,7 @@ public abstract class TopBarMenuBase extends AbstractMobilePageBase {
         super(driver);
     }
 
-    public abstract CartScreenBase clickOnCartIconBtn();
+    public abstract CartScreenBase clickCartIconBtn();
 
-    public abstract TopLeftMenuBase clickOnTopLeftMenuBtn();
+    public abstract TopLeftMenuBase clickTopLeftMenuBtn();
 }

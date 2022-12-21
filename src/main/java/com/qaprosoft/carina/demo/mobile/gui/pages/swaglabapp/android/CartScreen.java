@@ -26,7 +26,7 @@ public class CartScreen extends CartScreenBase {
     private ExtendedWebElement checkoutBtn;
 
     @Override
-    public boolean isScreenOpened() {
+    public boolean isOpened() {
         return cartPageTitle.isElementPresent();
     }
 

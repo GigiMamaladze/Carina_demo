@@ -21,13 +21,13 @@ public class TopBarMenu extends TopBarMenuBase {
     private ExtendedWebElement topLeftMenu;
 
     @Override
-    public CartScreenBase clickOnCartIconBtn() {
+    public CartScreenBase clickCartIconBtn() {
         cartBtn.click();
         return initPage(getDriver(), CartScreenBase.class);
     }
 
     @Override
-    public TopLeftMenuBase clickOnTopLeftMenuBtn() {
+    public TopLeftMenuBase clickTopLeftMenuBtn() {
         topLeftMenu.click();
         return initPage(getDriver(), TopLeftMenuBase.class);
     }

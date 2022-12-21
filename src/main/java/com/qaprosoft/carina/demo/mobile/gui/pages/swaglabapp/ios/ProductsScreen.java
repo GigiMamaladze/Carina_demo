@@ -3,6 +3,7 @@ package com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.ios;
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.annotations.ClassChain;
+import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.common.ProductsScreenBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -14,21 +15,20 @@ public class ProductsScreen extends ProductsScreenBase {
     }
 
 
-    @FindBy(xpath = "**/XCUIElementTypeStaticText[`label == 'PRODUCTS'`]")
-    @ClassChain
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == 'PRODUCTS'`]")
     private ExtendedWebElement productsTitle;
 
-    @FindBy(xpath = "//XCUIElementTypeStaticText[contains(@value,'%s')]//ancestor::*[@name='test-Item']//*[@name='test-ADD TO CART']")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[$type == 'XCUIElementTypeStaticText' AND name == 'test-Item title' AND label == '%s'$][-3]/**/XCUIElementTypeOther[`name == 'test-ADD TO CART'`]")
     private ExtendedWebElement productList;
 
 
     @Override
-    public boolean isScreenOpened() {
+    public boolean isOpened() {
         return productsTitle.isElementPresent();
     }
 
     @Override
-    public void clickOnAddToCartBtn(String product) {
+    public void clickAddToCartBtn(String product) {
         productList.format(product).click();
     }
 

@@ -10,87 +10,86 @@ public class SwagLabsTest extends AbstractTest {
 
     @Test
     public void loginTest() {
-        SwagLabsLogInScreenBase swagLabsLogInScreenBase = initPage(getDriver(), SwagLabsLogInScreenBase.class);
-        Assert.assertTrue(swagLabsLogInScreenBase.isScreenOpened(), "Login page is not opened");
-        swagLabsLogInScreenBase.typeUserName(R.TESTDATA.get("appUser"));
-        swagLabsLogInScreenBase.typePassword(R.TESTDATA.get("appPassword"));
-        ProductsScreenBase productsScreenBase = swagLabsLogInScreenBase.clickLogInBtn();
-        Assert.assertTrue(productsScreenBase.isScreenOpened(), "Products page is not opened");
+        SwagLabsLogInScreenBase swagLabsLogInScreen = initPage(getDriver(), SwagLabsLogInScreenBase.class);
+        Assert.assertTrue(swagLabsLogInScreen.isOpened(), "Login page is not opened");
+        swagLabsLogInScreen.typeUserName(R.TESTDATA.get("appUser"));
+        swagLabsLogInScreen.typePassword(R.TESTDATA.get("appPassword"));
+        ProductsScreenBase productsScreen = swagLabsLogInScreen.clickLogInBtn();
+        Assert.assertTrue(productsScreen.isOpened(), "Products page is not opened");
     }
 
     @Test
     public void addToCartTest() {
-        SwagLabsLogInScreenBase swagLabsLogInScreenBase = initPage(getDriver(), SwagLabsLogInScreenBase.class);
-        Assert.assertTrue(swagLabsLogInScreenBase.isScreenOpened(), "Login page is not opened");
-        swagLabsLogInScreenBase.typeUserName(R.TESTDATA.get("appUser"));
-        swagLabsLogInScreenBase.typePassword(R.TESTDATA.get("appPassword"));
-        ProductsScreenBase productsScreenBase = swagLabsLogInScreenBase.clickLogInBtn();
+        SwagLabsLogInScreenBase swagLabsLogInScreen = initPage(getDriver(), SwagLabsLogInScreenBase.class);
+        Assert.assertTrue(swagLabsLogInScreen.isOpened(), "Login page is not opened");
+        swagLabsLogInScreen.typeUserName(R.TESTDATA.get("appUser"));
+        swagLabsLogInScreen.typePassword(R.TESTDATA.get("appPassword"));
+        ProductsScreenBase productsScreen = swagLabsLogInScreen.clickLogInBtn();
         String product = "Sauce Labs Backpack";
-        Assert.assertTrue(productsScreenBase.isScreenOpened(), "Products screen is not opened");
-        productsScreenBase.clickOnAddToCartBtn(product);
-        TopBarMenuBase topBarMenuBase = initPage(TopBarMenuBase.class);
-        CartScreenBase cartScreenBase = topBarMenuBase.clickOnCartIconBtn();
-        Assert.assertTrue(cartScreenBase.isScreenOpened(), "Cart screen is not opened");
-        Assert.assertTrue(cartScreenBase.isProductPresentCart(product), "Product is not added on cart");
+        Assert.assertTrue(productsScreen.isOpened(), "Products screen is not opened");
+        productsScreen.clickAddToCartBtn(product);
+        TopBarMenuBase topBarMenu = initPage(TopBarMenuBase.class);
+        CartScreenBase cartScreen = topBarMenu.clickCartIconBtn();
+        Assert.assertTrue(cartScreen.isOpened(), "Cart screen is not opened");
+        Assert.assertTrue(cartScreen.isProductPresentCart(product), "Product is not added on cart");
     }
 
     @Test
     public void removeFromCartTest() {
-        SwagLabsLogInScreenBase swagLabsLogInScreenBase = initPage(getDriver(), SwagLabsLogInScreenBase.class);
-        Assert.assertTrue(swagLabsLogInScreenBase.isScreenOpened(), "Login page is not opened");
-        swagLabsLogInScreenBase.typeUserName(R.TESTDATA.get("appUser"));
-        swagLabsLogInScreenBase.typePassword(R.TESTDATA.get("appPassword"));
-        ProductsScreenBase productsScreenBase = swagLabsLogInScreenBase.clickLogInBtn();
+        SwagLabsLogInScreenBase swagLabsLogInScreen = initPage(getDriver(), SwagLabsLogInScreenBase.class);
+        Assert.assertTrue(swagLabsLogInScreen.isOpened(), "Login page is not opened");
+        swagLabsLogInScreen.typeUserName(R.TESTDATA.get("appUser"));
+        swagLabsLogInScreen.typePassword(R.TESTDATA.get("appPassword"));
+        ProductsScreenBase productsScreen = swagLabsLogInScreen.clickLogInBtn();
         String product = "Sauce Labs Backpack";
-        Assert.assertTrue(productsScreenBase.isScreenOpened(), "Products screen is not opened");
-        productsScreenBase.clickOnAddToCartBtn(product);
-        TopBarMenuBase topBarMenuBase = initPage(TopBarMenuBase.class);
-        CartScreenBase cartScreenBase = topBarMenuBase.clickOnCartIconBtn();
-        Assert.assertTrue(cartScreenBase.isScreenOpened(), "Cart screen is not opened");
-        Assert.assertTrue(cartScreenBase.isProductPresentCart(product), "Product is not added on cart");
-        cartScreenBase.removeProduct(product);
-        Assert.assertFalse(cartScreenBase.isProductPresentCart(product), "Product is not removed from cart");
+        Assert.assertTrue(productsScreen.isOpened(), "Products screen is not opened");
+        productsScreen.clickAddToCartBtn(product);
+        TopBarMenuBase topBarMenu = initPage(TopBarMenuBase.class);
+        CartScreenBase cartScreen = topBarMenu.clickCartIconBtn();
+        Assert.assertTrue(cartScreen.isOpened(), "Cart screen is not opened");
+        Assert.assertTrue(cartScreen.isProductPresentCart(product), "Product is not added on cart");
+        cartScreen.removeProduct(product);
+        Assert.assertFalse(cartScreen.isProductPresentCart(product), "Product is not removed from cart");
 
     }
 
     @Test
     public void checkProductOrder() {
-        SwagLabsLogInScreenBase swagLabsLogInScreenBase = initPage(getDriver(), SwagLabsLogInScreenBase.class);
-        Assert.assertTrue(swagLabsLogInScreenBase.isScreenOpened(), "Login page is not opened");
-        swagLabsLogInScreenBase.typeUserName(R.TESTDATA.get("appUser"));
-        swagLabsLogInScreenBase.typePassword(R.TESTDATA.get("appPassword"));
-        ProductsScreenBase productsScreenBase = swagLabsLogInScreenBase.clickLogInBtn();
+        SwagLabsLogInScreenBase swagLabsLogInScreen = initPage(getDriver(), SwagLabsLogInScreenBase.class);
+        Assert.assertTrue(swagLabsLogInScreen.isOpened(), "Login page is not opened");
+        swagLabsLogInScreen.typeUserName(R.TESTDATA.get("appUser"));
+        swagLabsLogInScreen.typePassword(R.TESTDATA.get("appPassword"));
+        ProductsScreenBase productsScreen = swagLabsLogInScreen.clickLogInBtn();
         String product = "Sauce Labs Backpack";
-        Assert.assertTrue(productsScreenBase.isScreenOpened(), "Products screen is not opened");
-        productsScreenBase.clickOnAddToCartBtn(product);
-        TopBarMenuBase topBarMenuBase = initPage(TopBarMenuBase.class);
-        CartScreenBase cartScreenBase = topBarMenuBase.clickOnCartIconBtn();
-        Assert.assertTrue(cartScreenBase.isScreenOpened(), "Cart screen is not opened");
-        Assert.assertTrue(cartScreenBase.isProductPresentCart(product), "Product is not added on cart");
-        CheckoutScreenBase checkoutScreenBase = cartScreenBase.clickCheckoutBtn();
-        Assert.assertTrue(checkoutScreenBase.isScreenOpened(), "Check out  screen is not opened");
-        checkoutScreenBase.typeFirstName(R.TESTDATA.get("firstName"));
-        checkoutScreenBase.typeLastName(R.TESTDATA.get("lastName"));
-        checkoutScreenBase.typeZipcode(R.TESTDATA.get("zipCode"));
-        OverviewScreenBase overviewScreenBase = checkoutScreenBase.clickContinueBtn();
-        Assert.assertTrue(overviewScreenBase.isScreenOpened(), "OverView screen is not opened");
-        Assert.assertTrue(overviewScreenBase.isProductPresentCart(product), "Product is not present");
-        overviewScreenBase.scrollToFinishBtn();
-        CompleteScreenBase completeScreenBase = overviewScreenBase.clickFinishBtn();
-        Assert.assertTrue(completeScreenBase.isScreenOpened(), "Complete screen is not opened");
+        Assert.assertTrue(productsScreen.isOpened(), "Products screen is not opened");
+        productsScreen.clickAddToCartBtn(product);
+        TopBarMenuBase topBarMenu = initPage(TopBarMenuBase.class);
+        CartScreenBase cartScreen = topBarMenu.clickCartIconBtn();
+        Assert.assertTrue(cartScreen.isOpened(), "Cart screen is not opened");
+        Assert.assertTrue(cartScreen.isProductPresentCart(product), "Product is not added on cart");
+        CheckoutScreenBase checkoutScreen = cartScreen.clickCheckoutBtn();
+        Assert.assertTrue(checkoutScreen.isOpened(), "Check out  screen is not opened");
+        checkoutScreen.typeFirstName(R.TESTDATA.get("firstName"));
+        checkoutScreen.typeLastName(R.TESTDATA.get("lastName"));
+        checkoutScreen.typeZipcode(R.TESTDATA.get("zipCode"));
+        CheckoutOverviewScreenBase overviewScreen = checkoutScreen.clickContinueBtn();
+        Assert.assertTrue(overviewScreen.isOpened(), "OverView screen is not opened");
+        Assert.assertTrue(overviewScreen.isProductPresentCart(product), "Product is not present");
+        CompleteScreenBase completeScreen = overviewScreen.clickFinishBtn();
+        Assert.assertTrue(completeScreen.isOpened(), "Complete screen is not opened");
     }
 
     @Test
     public void logoutTest() {
-        SwagLabsLogInScreenBase swagLabsLogInScreenBase = initPage(getDriver(), SwagLabsLogInScreenBase.class);
-        Assert.assertTrue(swagLabsLogInScreenBase.isScreenOpened(), "Login page is not opened");
-        swagLabsLogInScreenBase.typeUserName(R.TESTDATA.get("appUser"));
-        swagLabsLogInScreenBase.typePassword(R.TESTDATA.get("appPassword"));
-        ProductsScreenBase productsScreenBase = swagLabsLogInScreenBase.clickLogInBtn();
-        Assert.assertTrue(productsScreenBase.isScreenOpened(), "Products page is not opened");
-        TopBarMenuBase topBarMenuBase = initPage(TopBarMenuBase.class);
-        TopLeftMenuBase topLeftMenuBase = topBarMenuBase.clickOnTopLeftMenuBtn();
-        SwagLabsLogInScreenBase swagLabsLogInScreenBaseLogOut = topLeftMenuBase.clickLogoutBtn();
-        Assert.assertTrue(swagLabsLogInScreenBaseLogOut.isScreenOpened(), "Login page is not opened");
+        SwagLabsLogInScreenBase swagLabsLogInScreen = initPage(getDriver(), SwagLabsLogInScreenBase.class);
+        Assert.assertTrue(swagLabsLogInScreen.isOpened(), "Login page is not opened");
+        swagLabsLogInScreen.typeUserName(R.TESTDATA.get("appUser"));
+        swagLabsLogInScreen.typePassword(R.TESTDATA.get("appPassword"));
+        ProductsScreenBase productsScreen = swagLabsLogInScreen.clickLogInBtn();
+        Assert.assertTrue(productsScreen.isOpened(), "Products page is not opened");
+        TopBarMenuBase topBarMenu = initPage(TopBarMenuBase.class);
+        TopLeftMenuBase topLeftMenu = topBarMenu.clickTopLeftMenuBtn();
+        swagLabsLogInScreen = topLeftMenu.clickLogoutBtn();
+        Assert.assertTrue(swagLabsLogInScreen.isOpened(), "Login page is not opened");
     }
 }

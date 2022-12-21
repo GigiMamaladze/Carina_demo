@@ -3,6 +3,7 @@ package com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.ios;
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.annotations.ClassChain;
+import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.common.CartScreenBase;
 import com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.common.CheckoutScreenBase;
 import org.openqa.selenium.WebDriver;
@@ -14,21 +15,20 @@ public class CartScreen extends CartScreenBase {
         super(driver);
     }
 
-    @FindBy(xpath = "//XCUIElementTypeStaticText[@name='%s']")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label =='%s'`]")
     private ExtendedWebElement productName;
 
-    @FindBy(xpath = "**/XCUIElementTypeStaticText[`label == 'YOUR CART'`]")
-    @ClassChain
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == 'YOUR CART'`]")
     private ExtendedWebElement cartPageTitle;
 
-    @FindBy(xpath = "//XCUIElementTypeStaticText[contains(@name,'%s')]//ancestor::*[@name='test-Item']//*[@name='test-REMOVE']")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[$type == 'XCUIElementTypeStaticText' AND label == '%s'$][-2]/**/XCUIElementTypeOther[`name== 'test-REMOVE'`]")
     private ExtendedWebElement removeProductBtn;
 
-    @FindBy(id = "test-CHECKOUT")
+    @ExtendedFindBy(accessibilityId = "test-CHECKOUT")
     private ExtendedWebElement checkoutBtn;
 
     @Override
-    public boolean isScreenOpened() {
+    public boolean isOpened() {
         return cartPageTitle.isElementPresent();
     }
 

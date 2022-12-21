@@ -7,7 +7,7 @@ public abstract class ProductsScreenBase extends AbstractMobilePageBase {
         super(driver);
     }
 
-    public abstract void clickOnAddToCartBtn(String product);
+    public abstract void clickAddToCartBtn(String product);
 
 
 }

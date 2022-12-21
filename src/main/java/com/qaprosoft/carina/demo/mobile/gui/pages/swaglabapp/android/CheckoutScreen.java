@@ -3,7 +3,7 @@ package com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.android;
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.common.CheckoutScreenBase;
-import com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.common.OverviewScreenBase;
+import com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.common.CheckoutOverviewScreenBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -29,7 +29,7 @@ public class CheckoutScreen extends CheckoutScreenBase {
     private ExtendedWebElement continueBtn;
 
     @Override
-    public boolean isScreenOpened() {
+    public boolean isOpened() {
         return titleOfCheckoutPage.isElementPresent();
     }
 
@@ -49,8 +49,8 @@ public class CheckoutScreen extends CheckoutScreenBase {
     }
 
     @Override
-    public OverviewScreenBase clickContinueBtn() {
+    public CheckoutOverviewScreenBase clickContinueBtn() {
         continueBtn.click();
-        return initPage(getDriver(), OverviewScreenBase.class);
+        return initPage(getDriver(), CheckoutOverviewScreenBase.class);
     }
 }

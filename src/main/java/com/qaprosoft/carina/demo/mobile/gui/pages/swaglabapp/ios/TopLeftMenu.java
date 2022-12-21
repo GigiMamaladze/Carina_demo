@@ -3,6 +3,7 @@ package com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.ios;
 
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.common.SwagLabsLogInScreenBase;
 import com.qaprosoft.carina.demo.mobile.gui.pages.swaglabapp.common.TopLeftMenuBase;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +15,7 @@ public class TopLeftMenu extends TopLeftMenuBase {
         super(driver);
     }
 
-    @FindBy(id = "test-LOGOUT")
+    @ExtendedFindBy(accessibilityId = "test-LOGOUT")
     private ExtendedWebElement logoutBtn;
 
     @Override
