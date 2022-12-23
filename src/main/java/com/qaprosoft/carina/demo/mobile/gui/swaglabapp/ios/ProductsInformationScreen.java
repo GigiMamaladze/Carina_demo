@@ -11,12 +11,5 @@ public class ProductsInformationScreen extends ProductInformationScreenBase {
     public ProductsInformationScreen(WebDriver driver) {
         super(driver);
     }
-
-    @ExtendedFindBy(image = "images/Sauce_Labs_Backpack.png")
-    private ExtendedWebElement image;
-
-    @Override
-    public boolean isOpened() {
-        return image.isElementPresent();
-    }
+    
 }
