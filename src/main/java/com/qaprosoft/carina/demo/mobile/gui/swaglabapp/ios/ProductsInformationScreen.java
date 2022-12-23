@@ -11,5 +11,22 @@ public class ProductsInformationScreen extends ProductInformationScreenBase {
     public ProductsInformationScreen(WebDriver driver) {
         super(driver);
     }
-    
+
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == '%s'`]")
+    private ExtendedWebElement productName;
+
+    @ExtendedFindBy(accessibilityId = "test-ADD TO CART")
+    private ExtendedWebElement addToCartBtn;
+
+    @Override
+    public boolean isProductPresent(String product) {
+        return productName.format(product).isElementPresent();
+    }
+
+    @Override
+    public void addToCart() {
+        swipe(addToCartBtn);
+        addToCartBtn.click();
+    }
+
 }

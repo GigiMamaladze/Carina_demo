@@ -8,5 +8,6 @@ public abstract class ProductInformationScreenBase extends AbstractMobilePageBas
         super(driver);
     }
 
+    public abstract void addToCart();
 
 }

@@ -23,6 +23,10 @@ public class SwagLabsLogInScreen extends SwagLabsLogInScreenBase {
     @ExtendedFindBy(accessibilityId = "test-LOGIN")
     private ExtendedWebElement logInBtn;
 
+    @ExtendedFindBy(accessibilityId = "Sorry, this user has been locked out.")
+    private ExtendedWebElement problemUserMessage;
+
+
     @Override
     public boolean isOpened() {
         return logInBtn.isElementPresent();
@@ -42,6 +46,11 @@ public class SwagLabsLogInScreen extends SwagLabsLogInScreenBase {
     public ProductsScreenBase clickLogInBtn() {
         logInBtn.click();
         return initPage(getDriver(), ProductsScreenBase.class);
+    }
+
+    @Override
+    public boolean isLockOutMessagePopsUp() {
+        return problemUserMessage.isElementPresent();
     }
 
 

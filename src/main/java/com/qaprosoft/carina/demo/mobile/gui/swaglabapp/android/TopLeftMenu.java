@@ -1,9 +1,8 @@
 package com.qaprosoft.carina.demo.mobile.gui.swaglabapp.android;
 
+import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.*;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.SwagLabsLogInScreenBase;
-import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.TopLeftMenuBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -20,5 +19,20 @@ public class TopLeftMenu extends TopLeftMenuBase {
     public SwagLabsLogInScreenBase clickLogoutBtn() {
         logoutBtn.click();
         return initPage(getDriver(), SwagLabsLogInScreenBase.class);
+    }
+
+    @Override
+    public WebviewScreenBase clickWebviewBtn() {
+        return null;
+    }
+
+    @Override
+    public QrCodeScreenBase clickQrCodeScannerBtn() {
+        return null;
+    }
+
+    @Override
+    public AboutWebScreenBase clickAboutBtn() {
+        return null;
     }
 }

@@ -17,9 +17,6 @@ public abstract class AbstractMobilePageBase extends AbstractPage implements IMo
         throw new UnsupportedOperationException("'isProductPresentCart' method is not implemented.");
     }
 
-    public boolean isProductPresent(String product, String imagine) {
-        throw new UnsupportedOperationException("'isProductPresentCart' method is not implemented.");
-    }
 
 
 }

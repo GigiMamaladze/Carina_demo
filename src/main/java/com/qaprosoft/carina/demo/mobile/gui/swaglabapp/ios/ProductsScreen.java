@@ -23,6 +23,9 @@ public class ProductsScreen extends ProductsScreenBase {
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[$type == 'XCUIElementTypeStaticText' AND name == 'test-Item title' AND label == '%s'$][-3]")
     private ExtendedWebElement productList;
 
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[$type == 'XCUIElementTypeStaticText' AND name == 'test-Item title' AND label == '%s'$][-3]/**/XCUIElementTypeOther[`name = 'test-REMOVE'`]")
+    private ExtendedWebElement productRemoveBtn;
+
     @Override
     public boolean isOpened() {
         return productsTitle.isElementPresent();
@@ -37,6 +40,21 @@ public class ProductsScreen extends ProductsScreenBase {
     public ProductInformationScreenBase clickOnProduct(String product) {
         productList.format(product).click();
         return initPage(getDriver(), ProductInformationScreenBase.class);
+    }
+
+    @Override
+    public void clickRemoveBtn(String product) {
+        productRemoveBtn.format(product).click();
+    }
+
+    @Override
+    public boolean isAddToCartBtnPresent(String product) {
+        return productAddToCart.format(product).isElementPresent();
+    }
+
+    @Override
+    public boolean isRemoveBtnPresent(String product) {
+        return productRemoveBtn.format(product).isElementPresent();
     }
 
 

@@ -44,4 +44,9 @@ public class SwagLabsLogInScreen extends SwagLabsLogInScreenBase {
         return initPage(getDriver(), ProductsScreenBase.class);
     }
 
+    @Override
+    public boolean isLockOutMessagePopsUp() {
+        return false;
+    }
+
 }
