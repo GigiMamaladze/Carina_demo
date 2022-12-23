@@ -33,4 +33,19 @@ public class ProductsScreen extends ProductsScreenBase {
     public ProductInformationScreenBase clickOnProduct(String product) {
         return null;
     }
+
+    @Override
+    public void clickRemoveBtn(String product) {
+
+    }
+
+    @Override
+    public boolean isAddToCartBtnPresent(String product) {
+        return false;
+    }
+
+    @Override
+    public boolean isRemoveBtnPresent(String product) {
+       return false;
+    }
 }

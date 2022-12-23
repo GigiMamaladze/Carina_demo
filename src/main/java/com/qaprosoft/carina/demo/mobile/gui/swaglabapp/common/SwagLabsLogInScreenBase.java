@@ -13,4 +13,6 @@ public abstract class SwagLabsLogInScreenBase extends AbstractMobilePageBase {
 
     public abstract ProductsScreenBase clickLogInBtn();
 
+    public abstract boolean isLockOutMessagePopsUp();
+
 }

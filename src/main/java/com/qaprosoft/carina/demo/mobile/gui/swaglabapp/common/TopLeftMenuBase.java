@@ -8,4 +8,10 @@ public abstract class TopLeftMenuBase extends AbstractMobilePageBase {
     }
 
     public abstract SwagLabsLogInScreenBase clickLogoutBtn();
+
+    public abstract WebviewScreenBase clickWebviewBtn();
+
+    public abstract QrCodeScreenBase clickQrCodeScannerBtn();
+
+    public abstract AboutWebScreenBase clickAboutBtn();
 }
