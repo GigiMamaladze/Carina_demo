@@ -4,7 +4,7 @@ import com.qaprosoft.carina.core.foundation.api.AbstractApiMethodV2;
 import com.qaprosoft.carina.core.foundation.api.annotation.*;
 import com.qaprosoft.carina.core.foundation.api.http.HttpMethodType;
 import com.qaprosoft.carina.core.foundation.api.http.HttpResponseStatusType;
-import com.qaprosoft.carina.core.foundation.utils.Configuration;
+import com.zebrunner.carina.utils.Configuration;
 
 @Endpoint(url = "${base_url}", methodType = HttpMethodType.POST)
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
@@ -14,7 +14,7 @@ import com.qaprosoft.carina.core.foundation.utils.Configuration;
 public class LookupCityMethod extends AbstractApiMethodV2 {
 
     public LookupCityMethod() {
-        replaceUrlPlaceholder("base_url",Configuration.getEnvArg("soap_url"));
+        replaceUrlPlaceholder("base_url", Configuration.getEnvArg("soap_url"));
         setHeaders(String.format("SOAPAction=%s", "http://tempuri.org/SOAP.Demo.LookupCity"));
     }
 }

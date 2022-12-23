@@ -9,5 +9,6 @@ public abstract class ProductsScreenBase extends AbstractMobilePageBase {
 
     public abstract void clickAddToCartBtn(String product);
 
+    public abstract ProductInformationScreenBase clickOnProduct(String product);
 
 }

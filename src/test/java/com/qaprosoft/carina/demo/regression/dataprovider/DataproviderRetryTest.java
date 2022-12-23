@@ -17,12 +17,13 @@ package com.qaprosoft.carina.demo.regression.dataprovider;
 
 import java.util.Random;
 
+import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
-import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
+
 
 /**
  * Carina regression test with retries and it's registration in Zafira.

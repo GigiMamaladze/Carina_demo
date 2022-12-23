@@ -1,6 +1,6 @@
 package com.qaprosoft.carina.demo.mobile.gui.carinaapplication.android;
 
-import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
+import com.zebrunner.carina.utils.factory.DeviceType;
 import com.qaprosoft.carina.demo.mobile.gui.carinaapplication.common.ContentFramePageBase;
 import org.openqa.selenium.WebDriver;
 

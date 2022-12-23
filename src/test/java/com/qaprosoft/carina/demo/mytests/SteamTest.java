@@ -1,10 +1,10 @@
 package com.qaprosoft.carina.demo.mytests;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
-import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.demo.gui.steam.pages.*;
 import com.qaprosoft.carina.demo.gui.steam.components.CardPayment;
 import com.qaprosoft.carina.demo.gui.steam.components.PaymentMethodLists;
+import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;

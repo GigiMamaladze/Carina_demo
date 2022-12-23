@@ -1,7 +1,8 @@
 package com.qaprosoft.carina.demo.mobile.gui.swaglabapp.android;
 
-import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
+import com.zebrunner.carina.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.ProductInformationScreenBase;
 import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.ProductsScreenBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -26,5 +27,10 @@ public class ProductsScreen extends ProductsScreenBase {
     @Override
     public void clickAddToCartBtn(String product) {
         productList.format(product).click();
+    }
+
+    @Override
+    public ProductInformationScreenBase clickOnProduct(String product) {
+        return null;
     }
 }

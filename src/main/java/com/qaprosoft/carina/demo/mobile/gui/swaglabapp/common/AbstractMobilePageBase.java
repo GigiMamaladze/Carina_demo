@@ -1,6 +1,6 @@
 package com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common;
 
-import com.qaprosoft.carina.core.foundation.utils.mobile.IMobileUtils;
+import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 
@@ -13,7 +13,11 @@ public abstract class AbstractMobilePageBase extends AbstractPage implements IMo
         throw new UnsupportedOperationException("'isOpened' method is not implemented.");
     }
 
-    public boolean isProductPresentCart(String product) {
+    public boolean isProductPresent(String product) {
+        throw new UnsupportedOperationException("'isProductPresentCart' method is not implemented.");
+    }
+
+    public boolean isProductPresent(String product, String imagine) {
         throw new UnsupportedOperationException("'isProductPresentCart' method is not implemented.");
     }
 

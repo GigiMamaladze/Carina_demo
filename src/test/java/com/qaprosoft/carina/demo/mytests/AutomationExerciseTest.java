@@ -1,7 +1,7 @@
 package com.qaprosoft.carina.demo.mytests;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
-import com.qaprosoft.carina.core.foundation.utils.R;
+import com.zebrunner.carina.utils.R;
 import com.qaprosoft.carina.demo.gui.automation_excercise.components.AddedProductPopup;
 import com.qaprosoft.carina.demo.gui.automation_excercise.pages.*;
 import com.qaprosoft.carina.demo.gui_components.gui_utils.AdBannerUtil;
