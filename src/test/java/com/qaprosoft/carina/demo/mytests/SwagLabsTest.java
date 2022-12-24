@@ -3,6 +3,7 @@ package com.qaprosoft.carina.demo.mytests;
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.zebrunner.carina.utils.R;
 import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.*;
+import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -142,6 +143,21 @@ public class SwagLabsTest extends AbstractTest {
     }
 
     @Test
+    public void drawScreenTest(){
+        SwagLabsLogInScreenBase swagLabsLogInScreen = initPage(getDriver(), SwagLabsLogInScreenBase.class);
+        Assert.assertTrue(swagLabsLogInScreen.isOpened(), "Login screen is not opened");
+        swagLabsLogInScreen.typeUserName(R.TESTDATA.get("appUser"));
+        swagLabsLogInScreen.typePassword(R.TESTDATA.get("appPassword"));
+        ProductsScreenBase productsScreen = swagLabsLogInScreen.clickLogInBtn();
+        Assert.assertTrue(productsScreen.isOpened(), "Products screen is not opened");
+        TopBarMenuBase topBarMenu=initPage(TopBarMenuBase.class);
+        TopLeftMenuBase topLeft=topBarMenu.clickTopLeftMenuBtn();
+        DrawingScreenBase drawingScreen = topLeft.clickDrawingBtn();
+        Assert.assertTrue(drawingScreen.isOpened(),"Screen is not opened");
+        Assert.assertTrue(drawingScreen.isDraw(IMobileUtils.Direction.UP,2000));
+    }
+
+    @Test
     public void aboutScreenTest(){
         SwagLabsLogInScreenBase swagLabsLogInScreen = initPage(getDriver(), SwagLabsLogInScreenBase.class);
         Assert.assertTrue(swagLabsLogInScreen.isOpened(), "Login screen is not opened");
@@ -153,7 +169,6 @@ public class SwagLabsTest extends AbstractTest {
         TopLeftMenuBase topLeft=topBarMenu.clickTopLeftMenuBtn();
         AboutWebScreenBase aboutWebScreen=topLeft.clickAboutBtn();
         Assert.assertTrue(aboutWebScreen.isOpened(),"SauceLabs web screen is not opened");
-
     }
 
     @Test
@@ -210,7 +225,7 @@ public class SwagLabsTest extends AbstractTest {
         Assert.assertTrue(productsScreen.isOpened(), "Products page is not opened");
         String product = "Sauce Labs Backpack";
         ProductInformationScreenBase productInformationScreen = productsScreen.clickOnProduct(product);
-        Assert.assertFalse(productInformationScreen.isProductPresent(product),"Product is present");
+        Assert.assertFalse(productInformationScreen.isProductPresent(product),"Product is presentqr");
     }
 
     @Test(groups = "Problem_User",description = "Add to cart from Product information Screen")

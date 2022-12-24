@@ -7,7 +7,6 @@ public abstract class ProductInformationScreenBase extends AbstractMobilePageBas
     public ProductInformationScreenBase(WebDriver driver) {
         super(driver);
     }
-
     public abstract void addToCart();
 
 }
