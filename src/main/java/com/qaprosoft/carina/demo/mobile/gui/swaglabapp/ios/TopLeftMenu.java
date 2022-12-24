@@ -25,6 +25,9 @@ public class TopLeftMenu extends TopLeftMenuBase {
     @ExtendedFindBy(accessibilityId = "test-ABOUT")
     private ExtendedWebElement aboutBtn;
 
+    @ExtendedFindBy(accessibilityId = "test-DRAWING")
+    private ExtendedWebElement drawBtn;
+
     @Override
     public SwagLabsLogInScreenBase clickLogoutBtn() {
         logoutBtn.click();
@@ -47,5 +50,11 @@ public class TopLeftMenu extends TopLeftMenuBase {
     public AboutWebScreenBase clickAboutBtn() {
         aboutBtn.click();
         return initPage(getDriver(), AboutWebScreenBase.class);
+    }
+
+    @Override
+    public DrawingScreenBase clickDrawingBtn() {
+        drawBtn.click();
+        return initPage(getDriver(), DrawingScreenBase.class);
     }
 }

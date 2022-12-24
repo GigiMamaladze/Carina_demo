@@ -35,4 +35,9 @@ public class TopLeftMenu extends TopLeftMenuBase {
     public AboutWebScreenBase clickAboutBtn() {
         return null;
     }
+
+    @Override
+    public DrawingScreenBase clickDrawingBtn() {
+        return null;
+    }
 }

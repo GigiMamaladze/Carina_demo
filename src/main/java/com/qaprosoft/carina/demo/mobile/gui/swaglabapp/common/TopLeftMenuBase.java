@@ -14,4 +14,6 @@ public abstract class TopLeftMenuBase extends AbstractMobilePageBase {
     public abstract QrCodeScreenBase clickQrCodeScannerBtn();
 
     public abstract AboutWebScreenBase clickAboutBtn();
+
+    public abstract DrawingScreenBase clickDrawingBtn();
 }
