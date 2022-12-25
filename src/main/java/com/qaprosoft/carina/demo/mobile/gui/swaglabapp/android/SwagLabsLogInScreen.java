@@ -2,7 +2,7 @@ package com.qaprosoft.carina.demo.mobile.gui.swaglabapp.android;
 
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.ProductsScreenBase;
+import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.ItemsScreenBase;
 import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.SwagLabsLogInScreenBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -39,9 +39,9 @@ public class SwagLabsLogInScreen extends SwagLabsLogInScreenBase {
     }
 
     @Override
-    public ProductsScreenBase clickLogInBtn() {
+    public ItemsScreenBase clickLogInBtn() {
         logInBtn.click();
-        return initPage(getDriver(), ProductsScreenBase.class);
+        return initPage(getDriver(), ItemsScreenBase.class);
     }
 
     @Override
