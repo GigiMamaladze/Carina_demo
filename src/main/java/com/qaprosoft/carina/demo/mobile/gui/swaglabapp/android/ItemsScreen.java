@@ -2,14 +2,14 @@ package com.qaprosoft.carina.demo.mobile.gui.swaglabapp.android;
 
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.ProductInformationScreenBase;
-import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.ProductsScreenBase;
+import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.ProductScreenBase;
+import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.ItemsScreenBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ProductsScreenBase.class)
-public class ProductsScreen extends ProductsScreenBase {
-    public ProductsScreen(WebDriver driver) {
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ItemsScreenBase.class)
+public class ItemsScreen extends ItemsScreenBase {
+    public ItemsScreen(WebDriver driver) {
         super(driver);
     }
 
@@ -30,7 +30,7 @@ public class ProductsScreen extends ProductsScreenBase {
     }
 
     @Override
-    public ProductInformationScreenBase clickOnProduct(String product) {
+    public ProductScreenBase clickOnProduct(String product) {
         return null;
     }
 
@@ -46,6 +46,6 @@ public class ProductsScreen extends ProductsScreenBase {
 
     @Override
     public boolean isRemoveBtnPresent(String product) {
-       return false;
+        return false;
     }
 }
