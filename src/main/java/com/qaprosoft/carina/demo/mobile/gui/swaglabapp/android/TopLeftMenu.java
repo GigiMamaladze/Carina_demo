@@ -1,5 +1,6 @@
 package com.qaprosoft.carina.demo.mobile.gui.swaglabapp.android;
 
+import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.*;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
@@ -15,6 +16,18 @@ public class TopLeftMenu extends TopLeftMenuBase {
     @FindBy(xpath = "//android.view.ViewGroup[@content-desc='test-LOGOUT']")
     private ExtendedWebElement logoutBtn;
 
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='test-ALL ITEMS']")
+    private ExtendedWebElement aboutBtn;
+
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='test-WEBVIEW']")
+    private ExtendedWebElement webViewBtn;
+
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='test-QR CODE SCANNER']")
+    private ExtendedWebElement qrCodeScannerBtn;
+
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='test-DRAWING']")
+    private ExtendedWebElement drawingBtn;
+
     @Override
     public SwagLabsLogInScreenBase clickLogoutBtn() {
         logoutBtn.click();
@@ -23,21 +36,25 @@ public class TopLeftMenu extends TopLeftMenuBase {
 
     @Override
     public WebviewScreenBase clickWebviewBtn() {
-        return null;
+        webViewBtn.click();
+        return initPage(getDriver(), WebviewScreenBase.class);
     }
 
     @Override
     public QrCodeScreenBase clickQrCodeScannerBtn() {
-        return null;
+        qrCodeScannerBtn.click();
+        return initPage(getDriver(), QrCodeScreenBase.class);
     }
 
     @Override
     public AboutWebScreenBase clickAboutBtn() {
-        return null;
+        aboutBtn.click();
+        return initPage(getDriver(), AboutWebScreenBase.class);
     }
 
     @Override
     public DrawingScreenBase clickDrawingBtn() {
-        return null;
+        drawingBtn.click();
+        return initPage(getDriver(), DrawingScreenBase.class);
     }
 }

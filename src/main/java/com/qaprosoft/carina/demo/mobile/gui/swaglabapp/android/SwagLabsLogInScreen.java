@@ -23,6 +23,9 @@ public class SwagLabsLogInScreen extends SwagLabsLogInScreenBase {
     @FindBy(id = "test-LOGIN")
     private ExtendedWebElement logInBtn;
 
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='test-Error message']")
+    private ExtendedWebElement errorMessage;
+
     @Override
     public boolean isOpened() {
         return logInBtn.isElementPresent();
@@ -46,7 +49,7 @@ public class SwagLabsLogInScreen extends SwagLabsLogInScreenBase {
 
     @Override
     public boolean isLockOutMessagePopsUp() {
-        return false;
+        return errorMessage.isElementPresent();
     }
 
 }

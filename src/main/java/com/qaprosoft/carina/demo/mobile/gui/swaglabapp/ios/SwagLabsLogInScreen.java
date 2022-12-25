@@ -24,7 +24,7 @@ public class SwagLabsLogInScreen extends SwagLabsLogInScreenBase {
     private ExtendedWebElement logInBtn;
 
     @ExtendedFindBy(accessibilityId = "Sorry, this user has been locked out.")
-    private ExtendedWebElement problemUserMessage;
+    private ExtendedWebElement errorMessage;
 
 
     @Override
@@ -50,7 +50,7 @@ public class SwagLabsLogInScreen extends SwagLabsLogInScreenBase {
 
     @Override
     public boolean isLockOutMessagePopsUp() {
-        return problemUserMessage.isElementPresent();
+        return errorMessage.isElementPresent();
     }
 
 

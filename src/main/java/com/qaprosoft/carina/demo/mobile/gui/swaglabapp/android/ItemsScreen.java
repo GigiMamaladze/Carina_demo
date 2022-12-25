@@ -17,6 +17,12 @@ public class ItemsScreen extends ItemsScreenBase {
     private ExtendedWebElement productsTitle;
 
     @FindBy(xpath = "//android.widget.TextView[contains(@text,'%s')]//ancestor::*[@content-desc='test-Item']//*[@text='ADD TO CART']")
+    private ExtendedWebElement productAddToCartBtn;
+
+    @FindBy(xpath = "//android.widget.TextView[contains(@text,'%s')]//ancestor::*[@content-desc='test-Item']//*[@text='REMOVE']")
+    private ExtendedWebElement productRemoveBtn;
+
+    @FindBy(xpath = "//android.widget.TextView[contains(@text,'Sauce Labs Backpack')]//ancestor::*[@content-desc='test-Item']")
     private ExtendedWebElement productList;
 
     @Override
@@ -26,26 +32,27 @@ public class ItemsScreen extends ItemsScreenBase {
 
     @Override
     public void clickAddToCartBtn(String product) {
-        productList.format(product).click();
+        productAddToCartBtn.format(product).click();
     }
 
     @Override
     public ProductScreenBase clickOnProduct(String product) {
-        return null;
+        productList.format(product).click();
+        return initPage(getDriver(), ProductScreenBase.class);
     }
 
     @Override
     public void clickRemoveBtn(String product) {
-
+        productRemoveBtn.format(product).click();
     }
 
     @Override
     public boolean isAddToCartBtnPresent(String product) {
-        return false;
+        return productAddToCartBtn.format(product).isElementPresent();
     }
 
     @Override
     public boolean isRemoveBtnPresent(String product) {
-        return false;
+        return productRemoveBtn.format(product).isElementPresent();
     }
 }
