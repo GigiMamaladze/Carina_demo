@@ -18,7 +18,7 @@ public class ItemsScreen extends ItemsScreenBase {
     private ExtendedWebElement productsTitle;
 
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[$type == 'XCUIElementTypeStaticText' AND name == 'test-Item title' AND label == '%s'$][-3]/**/XCUIElementTypeOther[`name == 'test-ADD TO CART'`]")
-    private ExtendedWebElement productAddToCart;
+    private ExtendedWebElement productAddToCartBtn;
 
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[$type == 'XCUIElementTypeStaticText' AND name == 'test-Item title' AND label == '%s'$][-3]")
     private ExtendedWebElement productList;
@@ -33,7 +33,7 @@ public class ItemsScreen extends ItemsScreenBase {
 
     @Override
     public void clickAddToCartBtn(String product) {
-        productAddToCart.format(product).click();
+        productAddToCartBtn.format(product).click();
     }
 
     @Override
@@ -49,7 +49,7 @@ public class ItemsScreen extends ItemsScreenBase {
 
     @Override
     public boolean isAddToCartBtnPresent(String product) {
-        return productAddToCart.format(product).isElementPresent();
+        return productAddToCartBtn.format(product).isElementPresent();
     }
 
     @Override
