@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.mytests;
+package com.qaprosoft.carina.demo.mobilegui_tests;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;

@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories.subcategories;
+package com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.categories.subcategories;
 
 public enum MenSubCategories {
     TSHIRTS("Tshirts "), JEANS("Jeans ");

@@ -1,15 +1,15 @@
-package com.qaprosoft.carina.demo.mytests;
+package com.qaprosoft.carina.demo.gui_tests;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
+import com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.Brands;
 import com.zebrunner.carina.utils.R;
 import com.qaprosoft.carina.demo.gui.automation_excercise.components.AddedProductPopup;
 import com.qaprosoft.carina.demo.gui.automation_excercise.pages.*;
-import com.qaprosoft.carina.demo.gui_components.gui_utils.AdBannerUtil;
-import com.qaprosoft.carina.demo.gui_enums.automation_excercise.Brands;
-import com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories.Categories;
-import com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories.subcategories.KidsSubCategory;
-import com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories.subcategories.MenSubCategories;
-import com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories.subcategories.WomenSubCategories;
+import com.qaprosoft.carina.demo.gui_components.automation_excercise.utils.AdBannerUtil;
+import com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.categories.Categories;
+import com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.categories.subcategories.KidsSubCategory;
+import com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.categories.subcategories.MenSubCategories;
+import com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.categories.subcategories.WomenSubCategories;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

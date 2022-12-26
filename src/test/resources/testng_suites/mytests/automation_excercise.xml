@@ -2,7 +2,7 @@
 <suite name="Automation Exercise" parallel="methods" thread-count="3">
     <test name="Automation_Exercise">
         <classes>
-            <class name="com.qaprosoft.carina.demo.mytests.AutomationExerciseTest"/>
+            <class name="com.qaprosoft.carina.demo.gui_tests.AutomationExerciseTest"/>
         </classes>
     </test>
 </suite>

@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories;
+package com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.categories;
 
 public enum Categories {
     WOMEN("Women"), MEN("Men"), KID("Kids");
