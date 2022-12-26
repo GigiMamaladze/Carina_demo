@@ -3,7 +3,7 @@ package com.qaprosoft.carina.demo.mobile.gui.swaglabapp.ios;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
-import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.ItemsScreenBase;
+import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.CatalogScreenBase;
 import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.SwagLabsLogInScreenBase;
 import org.openqa.selenium.WebDriver;
 
@@ -43,13 +43,13 @@ public class SwagLabsLogInScreen extends SwagLabsLogInScreenBase {
     }
 
     @Override
-    public ItemsScreenBase clickLogInBtn() {
+    public CatalogScreenBase clickLogInBtn() {
         logInBtn.click();
-        return initPage(getDriver(), ItemsScreenBase.class);
+        return initPage(getDriver(), CatalogScreenBase.class);
     }
 
     @Override
-    public boolean isLockOutMessagePopsUp() {
+    public boolean isLockOutMessagePresent() {
         return errorMessage.isElementPresent();
     }
 

@@ -13,21 +13,9 @@ public class QrCodeScreen extends QrCodeScreenBase {
         super(driver);
     }
 
-    @FindBy(id = "com.android.permissioncontroller:id/permission_allow_foreground_only_button")
-    private ExtendedWebElement allowBtn;
-
     @FindBy(xpath = "//android.widget.TextView[@text ='Scan a QR Code that contains a url.']//ancestor::*[1]")
     private ExtendedWebElement message;
 
-    @Override
-    public boolean isAlertPresent() {
-        return allowBtn.isElementPresent();
-    }
-
-    @Override
-    public void handleAlert() {
-        if (isAlertPresent()) allowBtn.click();
-    }
 
     @Override
     public boolean isOpened() {
