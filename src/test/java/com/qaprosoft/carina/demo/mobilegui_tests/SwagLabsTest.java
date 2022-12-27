@@ -103,8 +103,8 @@ public class SwagLabsTest extends AbstractSwagLabsTest {
         CatalogScreenBase productsScreen = authService.loginWithStandardUser();
         TopLeftMenuBase topLeftMenu = initPage(TopBarMenuBase.class).clickTopLeftMenuBtn();
         QrCodeScreenBase qrCodeScreen = topLeftMenu.clickQrCodeScannerBtn();
-        AlertScreenBase allertScreen = initPage(AlertScreenBase.class);
-        if (allertScreen.isAlertPresent()) allertScreen.clickAllowBtn();
+        CameraAccessScreenBase cameraAllertScreen = initPage(CameraAccessScreenBase.class);
+        if (cameraAllertScreen.isAlertPresent()) cameraAllertScreen.clickOkBtn();
         Assert.assertTrue(qrCodeScreen.isOpened(), "QrCodeScanner screen is not opened");
     }
 
@@ -178,6 +178,4 @@ public class SwagLabsTest extends AbstractSwagLabsTest {
         Assert.assertFalse(cartScreen.isProductPresent(product), "Product is added on cart");
 
     }
-
-
 }

@@ -1,14 +1,14 @@
 package com.qaprosoft.carina.demo.mobile.gui.swaglabapp.android;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.AlertScreenBase;
+import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.CameraAccessScreenBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = AlertScreenBase.class)
-public class AlertScreen extends AlertScreenBase {
-    public AlertScreen(WebDriver driver) {
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = CameraAccessScreenBase.class)
+public class CameraAccessScreen extends CameraAccessScreenBase {
+    public CameraAccessScreen(WebDriver driver) {
         super(driver);
     }
 
@@ -21,7 +21,7 @@ public class AlertScreen extends AlertScreenBase {
     }
 
     @Override
-    public void clickAllowBtn() {
+    public void clickOkBtn() {
         allowBtn.click();
     }
 }
