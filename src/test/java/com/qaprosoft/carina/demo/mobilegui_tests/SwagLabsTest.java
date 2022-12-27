@@ -103,8 +103,8 @@ public class SwagLabsTest extends AbstractSwagLabsTest {
         CatalogScreenBase productsScreen = authService.loginWithStandardUser();
         TopLeftMenuBase topLeftMenu = initPage(TopBarMenuBase.class).clickTopLeftMenuBtn();
         QrCodeScreenBase qrCodeScreen = topLeftMenu.clickQrCodeScannerBtn();
-        CameraAccessScreenBase cameraAllertScreen = initPage(CameraAccessScreenBase.class);
-        if (cameraAllertScreen.isAlertPresent()) cameraAllertScreen.clickOkBtn();
+        CameraAccessAlertBase cameraAccessAlert = initPage(CameraAccessAlertBase.class);
+        if (cameraAccessAlert.isAlertPresent()) cameraAccessAlert.clickOkBtn();
         Assert.assertTrue(qrCodeScreen.isOpened(), "QrCodeScanner screen is not opened");
     }
 
