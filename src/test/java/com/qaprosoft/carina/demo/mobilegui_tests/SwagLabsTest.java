@@ -41,7 +41,6 @@ public class SwagLabsTest extends AbstractSwagLabsTest {
         Assert.assertTrue(cartScreen.isProductPresent(product), "Product is not added on cart");
         cartScreen.removeProduct(product);
         Assert.assertFalse(cartScreen.isProductPresent(product), "Product is not removed from cart");
-
     }
 
     @Test
@@ -176,6 +175,5 @@ public class SwagLabsTest extends AbstractSwagLabsTest {
         CartScreenBase cartScreen = initPage(TopBarMenuBase.class).clickCartIconBtn();
         Assert.assertTrue(cartScreen.isOpened(), "Cart screen is not opened");
         Assert.assertFalse(cartScreen.isProductPresent(product), "Product is added on cart");
-
     }
 }
