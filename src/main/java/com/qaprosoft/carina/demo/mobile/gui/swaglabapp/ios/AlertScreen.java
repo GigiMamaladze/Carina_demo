@@ -2,13 +2,13 @@ package com.qaprosoft.carina.demo.mobile.gui.swaglabapp.ios;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
-import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.AllertScreenBase;
+import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.AlertScreenBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 
-@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = AllertScreenBase.class)
-public class AllertScreen extends AllertScreenBase {
-    public AllertScreen(WebDriver driver) {
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = AlertScreenBase.class)
+public class AlertScreen extends AlertScreenBase {
+    public AlertScreen(WebDriver driver) {
         super(driver);
     }
 
@@ -16,7 +16,7 @@ public class AllertScreen extends AllertScreenBase {
     private ExtendedWebElement allowBtn;
 
     @Override
-    public boolean isAllertPresent() {
+    public boolean isAlertPresent() {
         return allowBtn.isElementPresent();
     }
 

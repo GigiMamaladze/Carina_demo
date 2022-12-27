@@ -1,16 +1,13 @@
 package com.qaprosoft.carina.demo.mobilegui_tests;
 
-import com.qaprosoft.carina.core.foundation.AbstractTest;
-import com.qaprosoft.carina.core.foundation.IAbstractTest;
-import com.qaprosoft.carina.demo.mobile_components.swaglabapp.Services;
-import com.qaprosoft.carina.demo.mobile_components.swaglabapp.utils.AutoLogInUtil;
+import com.qaprosoft.carina.demo.mobile_components.swaglabapp.AbstractSwagLabsTest;
 import com.zebrunner.carina.utils.R;
 import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.*;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class SwagLabsTest extends Services implements IAbstractTest {
+public class SwagLabsTest extends AbstractSwagLabsTest {
 
     @Test
     public void loginTest() {
@@ -24,7 +21,7 @@ public class SwagLabsTest extends Services implements IAbstractTest {
 
     @Test
     public void addToCartTest() {
-        CatalogScreenBase productsScreen = autoLogInUtil.logIn();
+        CatalogScreenBase productsScreen = authService.loginWithStandardUser();
         String product = "Sauce Labs Backpack";
         Assert.assertTrue(productsScreen.isOpened(), "Products screen is not opened");
         productsScreen.clickAddToCartBtn(product);
@@ -35,7 +32,7 @@ public class SwagLabsTest extends Services implements IAbstractTest {
 
     @Test
     public void removeFromCartTest() {
-        CatalogScreenBase productsScreen = autoLogInUtil.logIn();
+        CatalogScreenBase productsScreen = authService.loginWithStandardUser();
         String product = "Sauce Labs Backpack";
         Assert.assertTrue(productsScreen.isOpened(), "Products screen is not opened");
         productsScreen.clickAddToCartBtn(product);
@@ -49,7 +46,7 @@ public class SwagLabsTest extends Services implements IAbstractTest {
 
     @Test
     public void checkProductOrder() {
-        CatalogScreenBase productsScreen = autoLogInUtil.logIn();
+        CatalogScreenBase productsScreen = authService.loginWithStandardUser();
         String product = "Sauce Labs Backpack";
         Assert.assertTrue(productsScreen.isOpened(), "Products screen is not opened");
         productsScreen.clickAddToCartBtn(product);
@@ -80,12 +77,10 @@ public class SwagLabsTest extends Services implements IAbstractTest {
         swagLabsLogInScreen = topLeftMenu.clickLogoutBtn();
         Assert.assertTrue(swagLabsLogInScreen.isOpened(), "Login screen is not opened");
     }
-    //-----------------------------------------------
-
 
     @Test
     public void productScreenTest() {
-        CatalogScreenBase productsScreen = autoLogInUtil.logIn();
+        CatalogScreenBase productsScreen = authService.loginWithStandardUser();
         String product = "Sauce Labs Backpack";
         ProductScreenBase productInformationScreen = productsScreen.clickOnProduct(product);
         Assert.assertTrue(productInformationScreen.isProductPresent(product), "Product is not founded");
@@ -93,7 +88,7 @@ public class SwagLabsTest extends Services implements IAbstractTest {
 
     @Test
     public void webviewScreenTest() {
-        CatalogScreenBase productsScreen = autoLogInUtil.logIn();
+        CatalogScreenBase productsScreen = authService.loginWithStandardUser();
         TopLeftMenuBase topLeftMenu = initPage(TopBarMenuBase.class).clickTopLeftMenuBtn();
         WebviewScreenBase webviewScreen = topLeftMenu.clickWebviewBtn();
         Assert.assertTrue(webviewScreen.isOpened(), "WebView screen is not opened");
@@ -105,17 +100,17 @@ public class SwagLabsTest extends Services implements IAbstractTest {
 
     @Test
     public void qrCodeScreenTest() {
-        CatalogScreenBase productsScreen = autoLogInUtil.logIn();
+        CatalogScreenBase productsScreen = authService.loginWithStandardUser();
         TopLeftMenuBase topLeftMenu = initPage(TopBarMenuBase.class).clickTopLeftMenuBtn();
         QrCodeScreenBase qrCodeScreen = topLeftMenu.clickQrCodeScannerBtn();
-        AllertScreenBase allertScreen = initPage(AllertScreenBase.class);
-        if (allertScreen.isAllertPresent()) allertScreen.clickAllowBtn();
+        AlertScreenBase allertScreen = initPage(AlertScreenBase.class);
+        if (allertScreen.isAlertPresent()) allertScreen.clickAllowBtn();
         Assert.assertTrue(qrCodeScreen.isOpened(), "QrCodeScanner screen is not opened");
     }
 
     @Test
     public void drawScreenTest() {
-        CatalogScreenBase productsScreen = autoLogInUtil.logIn();
+        CatalogScreenBase productsScreen = authService.loginWithStandardUser();
         TopLeftMenuBase topLeftMenu = initPage(TopBarMenuBase.class).clickTopLeftMenuBtn();
         DrawingScreenBase drawingScreen = topLeftMenu.clickDrawingBtn();
         Assert.assertTrue(drawingScreen.isOpened(), "Screen is not opened");
@@ -125,7 +120,7 @@ public class SwagLabsTest extends Services implements IAbstractTest {
 
     @Test
     public void aboutScreenTest() {
-        CatalogScreenBase productsScreen = autoLogInUtil.logIn();
+        CatalogScreenBase productsScreen = authService.loginWithStandardUser();
         TopLeftMenuBase topLeftMenu = initPage(TopBarMenuBase.class).clickTopLeftMenuBtn();
         AboutWebScreenBase aboutWebScreen = topLeftMenu.clickAboutBtn();
         Assert.assertTrue(aboutWebScreen.isOpened(), "SauceLabs web screen is not opened");
@@ -144,7 +139,7 @@ public class SwagLabsTest extends Services implements IAbstractTest {
 
     @Test(groups = "Problem_User")
     public void puAddToCartTest() {
-        CatalogScreenBase productsScreen = autoLogInUtil.problemUserLogIn();
+        CatalogScreenBase productsScreen = authService.loginWithProblemUser();
         String product1 = "Sauce Labs Backpack";
         String product2 = "Sauce Labs Bike Light";
         productsScreen.clickAddToCartBtn(product1);
@@ -157,7 +152,7 @@ public class SwagLabsTest extends Services implements IAbstractTest {
 
     @Test(groups = "Problem_User", description = "Delete From Product screen")
     public void puRemoveProductTest() {
-        CatalogScreenBase productsScreen = autoLogInUtil.problemUserLogIn();
+        CatalogScreenBase productsScreen = authService.loginWithProblemUser();
         String product = "Sauce Labs Backpack";
         productsScreen.clickAddToCartBtn(product);
         productsScreen.clickRemoveBtn(product);
@@ -166,7 +161,7 @@ public class SwagLabsTest extends Services implements IAbstractTest {
 
     @Test(groups = "Problem_User")
     public void puProductScreenTest() {
-        CatalogScreenBase productsScreen = autoLogInUtil.problemUserLogIn();
+        CatalogScreenBase productsScreen = authService.loginWithProblemUser();
         String product = "Sauce Labs Backpack";
         ProductScreenBase productInformationScreen = productsScreen.clickOnProduct(product);
         Assert.assertFalse(productInformationScreen.isProductPresent(product), "Product is present");
@@ -174,7 +169,7 @@ public class SwagLabsTest extends Services implements IAbstractTest {
 
     @Test(groups = "Problem_User", description = "Add to cart from Product  Screen")
     public void addToCartFromProductScreen() {
-        CatalogScreenBase productsScreen = autoLogInUtil.problemUserLogIn();
+        CatalogScreenBase productsScreen = authService.loginWithProblemUser();
         String product = "Sauce Labs Backpack";
         ProductScreenBase productInformationScreen = productsScreen.clickOnProduct(product);
         productInformationScreen.clickAddToCart();
