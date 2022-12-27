@@ -6,7 +6,7 @@ import com.qaprosoft.carina.demo.mobile.gui.swaglabapp.common.DrawingScreenBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 
-@DeviceType(pageType = DeviceType.Type.IOS_PHONE,parentClass = DrawingScreenBase.class)
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = DrawingScreenBase.class)
 public class DrawingScreen extends DrawingScreenBase {
     public DrawingScreen(WebDriver driver) {
         super(driver);
@@ -19,8 +19,8 @@ public class DrawingScreen extends DrawingScreenBase {
     private ExtendedWebElement drawScreenTitle;
 
     @Override
-    public boolean isDraw(Direction direction, int duration) {
-        return swipeInContainer(drawPanel,direction,duration);
+    public boolean drawLine(Direction direction, int duration) {
+        return swipeInContainer(drawPanel, direction, duration);
     }
 
     @Override

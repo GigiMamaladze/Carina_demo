@@ -2,7 +2,7 @@ package com.qaprosoft.carina.demo.gui.automation_excercise.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.qaprosoft.carina.demo.gui_enums.automation_excercise.Brands;
+import com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.Brands;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 

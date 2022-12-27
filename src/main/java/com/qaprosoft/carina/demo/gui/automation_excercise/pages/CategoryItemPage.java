@@ -5,9 +5,9 @@ import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.qaprosoft.carina.demo.gui.automation_excercise.components.CategoriesMenu;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
-import com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories.subcategories.KidsSubCategory;
-import com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories.subcategories.MenSubCategories;
-import com.qaprosoft.carina.demo.gui_enums.automation_excercise.categories.subcategories.WomenSubCategories;
+import com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.categories.subcategories.KidsSubCategory;
+import com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.categories.subcategories.MenSubCategories;
+import com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.categories.subcategories.WomenSubCategories;
 
 public class CategoryItemPage extends AbstractPage {
     public CategoryItemPage(WebDriver driver) {

@@ -20,7 +20,7 @@ public class DrawingScreen extends DrawingScreenBase {
     private ExtendedWebElement drawPanel;
 
     @Override
-    public boolean isDraw(Direction direction, int duration) {
+    public boolean drawLine(Direction direction, int duration) {
         return swipeInContainer(drawPanel, direction, duration);
     }
 

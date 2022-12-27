@@ -12,21 +12,10 @@ public class QrCodeScreen extends QrCodeScreenBase {
         super(driver);
     }
 
-    @ExtendedFindBy(accessibilityId = "OK")
-    private ExtendedWebElement allowBtn;
 
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == 'Scan a QR Code that contains a url. It will be opened in the default browser.'`][4]")
     private ExtendedWebElement message;
 
-    @Override
-    public boolean isAlertPresent() {
-        return allowBtn.isElementPresent();
-    }
-
-    @Override
-    public void handleAlert() {
-        if (isAlertPresent()) allowBtn.click();
-    }
 
     @Override
     public boolean isOpened() {
