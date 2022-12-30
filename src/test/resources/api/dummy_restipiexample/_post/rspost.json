@@ -6,7 +6,7 @@
       <#if salary??>"salary": ${salary},</#if>
       <#if age??>"age": ${age} </#if>
     },
-    "id": "skip"
+    "id": "type:Integer"
   },
   "message": "Successfully! Record has been added."
 }

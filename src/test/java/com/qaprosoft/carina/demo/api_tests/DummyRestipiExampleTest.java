@@ -27,9 +27,6 @@ public class DummyRestipiExampleTest {
     public void testPostEmployee() {
         PostEmployeeMethod postEmployeeMethod = new PostEmployeeMethod();
         postEmployeeMethod.setProperties("api/dummy_restipiexample/employee.properties");
-        postEmployeeMethod.getProperties().setProperty("name", "Gigi");
-        postEmployeeMethod.getProperties().setProperty("salary", "500");
-        postEmployeeMethod.getProperties().setProperty("age", "20");
         postEmployeeMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
         postEmployeeMethod.callAPI();
         postEmployeeMethod.validateResponse();
@@ -37,11 +34,17 @@ public class DummyRestipiExampleTest {
 
     @Test()
     public void testDeleteEmployee() {
+        PostEmployeeMethod postEmployeeMethod = new PostEmployeeMethod();
+        postEmployeeMethod.setProperties("api/dummy_restipiexample/employee.properties");
+        postEmployeeMethod.callAPI();
+        String name = postEmployeeMethod.getProperties().getProperty("name");
+        String salary = postEmployeeMethod.getProperties().getProperty("salary");
+        String age = postEmployeeMethod.getProperties().getProperty("age");
         DeleteEmployeeMethod deleteEmployeeMethod = new DeleteEmployeeMethod();
         deleteEmployeeMethod.setProperties("api/dummy_restipiexample/employee.properties");
-        deleteEmployeeMethod.getProperties().setProperty("name", "Irakli");
-        deleteEmployeeMethod.getProperties().setProperty("salary", "50000");
-        deleteEmployeeMethod.getProperties().setProperty("age", "29");
+        deleteEmployeeMethod.getProperties().setProperty("name", name);
+        deleteEmployeeMethod.getProperties().setProperty("salary", salary);
+        deleteEmployeeMethod.getProperties().setProperty("age", age);
         deleteEmployeeMethod.callAPIExpectSuccess();
         deleteEmployeeMethod.validateResponse();
     }
@@ -50,9 +53,6 @@ public class DummyRestipiExampleTest {
     public void testPutEmployee() {
         PutEmployeeMethod putEmployeeMethod = new PutEmployeeMethod();
         putEmployeeMethod.setProperties("api/dummy_restipiexample/employee.properties");
-        putEmployeeMethod.getProperties().setProperty("name", "Irakli");
-        putEmployeeMethod.getProperties().setProperty("salary", "50000");
-        putEmployeeMethod.getProperties().setProperty("age", "29");
         putEmployeeMethod.callAPIExpectSuccess();
         putEmployeeMethod.validateResponse();
     }
@@ -61,11 +61,12 @@ public class DummyRestipiExampleTest {
     public void testPostEmployeeMissingSomeFields() {
         PostEmployeeMethod postEmployeeMethod = new PostEmployeeMethod();
         postEmployeeMethod.setProperties("api/dummy_restipiexample/employee.properties");
-        postEmployeeMethod.getProperties().setProperty("name", "Gigi");
         postEmployeeMethod.getProperties().remove("salary");
         postEmployeeMethod.getProperties().remove("age");
         postEmployeeMethod.setResponseTemplate("api/dummy_restipiexample/_post/rsmissingpost.json");
         postEmployeeMethod.callAPIExpectSuccess();
         postEmployeeMethod.validateResponse();
     }
+
+
 }
