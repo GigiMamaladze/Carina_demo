@@ -17,7 +17,7 @@ public class DummyRestipiExampleTest {
 
     @Test()
     public void testGetEmployee() {
-        GetEmployeeMethod getEmployeeMethod = new GetEmployeeMethod();
+        GetEmployeeMethod getEmployeeMethod = new GetEmployeeMethod("3");
         getEmployeeMethod.callAPIExpectSuccess();
         getEmployeeMethod.validateResponse(JSONCompareMode.STRICT, JsonCompareKeywords.ARRAY_CONTAINS.getKey());
         getEmployeeMethod.validateResponseAgainstSchema("api/dummy_restipiexample/_get/rsget.json");
@@ -51,7 +51,7 @@ public class DummyRestipiExampleTest {
 
     @Test()
     public void testPutEmployee() {
-        PutEmployeeMethod putEmployeeMethod = new PutEmployeeMethod();
+        PutEmployeeMethod putEmployeeMethod = new PutEmployeeMethod("5");
         putEmployeeMethod.setProperties("api/dummy_restipiexample/employee.properties");
         putEmployeeMethod.callAPIExpectSuccess();
         putEmployeeMethod.validateResponse();
@@ -67,6 +67,4 @@ public class DummyRestipiExampleTest {
         postEmployeeMethod.callAPIExpectSuccess();
         postEmployeeMethod.validateResponse();
     }
-
-
 }

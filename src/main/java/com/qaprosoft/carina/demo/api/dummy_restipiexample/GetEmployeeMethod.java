@@ -8,11 +8,12 @@ import com.qaprosoft.carina.core.foundation.api.http.HttpMethodType;
 import com.qaprosoft.carina.core.foundation.api.http.HttpResponseStatusType;
 import com.zebrunner.carina.utils.Configuration;
 
-@Endpoint(url = "${base_url}/employee/1",methodType =HttpMethodType.GET)
+@Endpoint(url = "${base_url}/employee/${id}", methodType = HttpMethodType.GET)
 @ResponseTemplatePath(path = "api/dummy_restipiexample/_get/rsget.json")
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
 public class GetEmployeeMethod extends AbstractApiMethodV2 {
-    public GetEmployeeMethod(){
+    public GetEmployeeMethod(String id) {
         replaceUrlPlaceholder("base_url", Configuration.getEnvArg("api_url"));
+        replaceUrlPlaceholder("id", id);
     }
 }

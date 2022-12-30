@@ -9,12 +9,13 @@ import com.qaprosoft.carina.core.foundation.api.http.HttpMethodType;
 import com.qaprosoft.carina.core.foundation.api.http.HttpResponseStatusType;
 import com.zebrunner.carina.utils.Configuration;
 
-@Endpoint(url = "${base_url}/update/25",methodType = HttpMethodType.PUT)
+@Endpoint(url = "${base_url}/update/${id}", methodType = HttpMethodType.PUT)
 @RequestTemplatePath(path = "api/dummy_restipiexample/_put/rqput.json")
-@ResponseTemplatePath(path ="api/dummy_restipiexample/_put/rsput.json")
+@ResponseTemplatePath(path = "api/dummy_restipiexample/_put/rsput.json")
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
 public class PutEmployeeMethod extends AbstractApiMethodV2 {
-    public PutEmployeeMethod(){
+    public PutEmployeeMethod(String id) {
         replaceUrlPlaceholder("base_url", Configuration.getEnvArg("api_url"));
+        replaceUrlPlaceholder("id", id);
     }
 }
