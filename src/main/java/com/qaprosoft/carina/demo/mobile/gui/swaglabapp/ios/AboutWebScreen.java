@@ -7,7 +7,7 @@ import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.IOS_PHONE,parentClass = AboutWebScreenBase.class)
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = AboutWebScreenBase.class)
 public class AboutWebScreen extends AboutWebScreenBase {
     public AboutWebScreen(WebDriver driver) {
         super(driver);
