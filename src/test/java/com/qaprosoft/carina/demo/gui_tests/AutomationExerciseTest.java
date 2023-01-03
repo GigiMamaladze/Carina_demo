@@ -111,7 +111,7 @@ public class AutomationExerciseTest extends AbstractTest {
         String product = "Blue Top";
         productsPage.typeProduct(product);
         productsPage.clickSearchBtnIcon();
-        Assert.assertTrue(productsPage.getProducts().isItemPresent(product), "Product is not found");
+        Assert.assertTrue(productsPage.getProducts().isItemPresent(product), "Products is not found");
     }
 
     @Test
@@ -123,7 +123,7 @@ public class AutomationExerciseTest extends AbstractTest {
         Assert.assertTrue(homePage.getProducts().isItemPresent(product), "item is not exist");
         homePage.getProducts().scrollToItem(product);
         ProductDetailsPage productDetailsPage = homePage.getProducts().clickOnViewProductButton();
-        Assert.assertTrue(productDetailsPage.isProductDetailsPageOpened(product), "Product details page is not opened");
+        Assert.assertTrue(productDetailsPage.isProductDetailsPageOpened(product), "Products details page is not opened");
     }
 
     @Test
@@ -197,7 +197,7 @@ public class AutomationExerciseTest extends AbstractTest {
         CheckOutPage checkOutPage = cartPage.clickProceedToCheckOutBtn();
         Assert.assertTrue(checkOutPage.isPageOpened(), "Check out page is not opened");
         checkOutPage.scrollToPlaceOrderBtn();
-        Assert.assertTrue(checkOutPage.isProductPresent(product), "Product is not present");
+        Assert.assertTrue(checkOutPage.isProductPresent(product), "Products is not present");
         PaymentPage paymentPage = checkOutPage.clickToPlaceOrderBtn();
         Assert.assertTrue(paymentPage.isPageOpened(), "Page is not opened");
         paymentPage.typeNameOnCard(R.TESTDATA.get("nameOnCard"));

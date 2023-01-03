@@ -27,7 +27,7 @@ public class SwagLabsTest extends AbstractSwagLabsTest {
         productsScreen.clickAddToCartBtn(product);
         CartScreenBase cartScreen = initPage(TopBarMenuBase.class).clickCartIconBtn();
         Assert.assertTrue(cartScreen.isOpened(), "Cart screen is not opened");
-        Assert.assertTrue(cartScreen.isProductPresent(product), "Product is not added on cart");
+        Assert.assertTrue(cartScreen.isProductPresent(product), "Products is not added on cart");
     }
 
     @Test
@@ -38,9 +38,9 @@ public class SwagLabsTest extends AbstractSwagLabsTest {
         productsScreen.clickAddToCartBtn(product);
         CartScreenBase cartScreen = initPage(TopBarMenuBase.class).clickCartIconBtn();
         Assert.assertTrue(cartScreen.isOpened(), "Cart screen is not opened");
-        Assert.assertTrue(cartScreen.isProductPresent(product), "Product is not added on cart");
+        Assert.assertTrue(cartScreen.isProductPresent(product), "Products is not added on cart");
         cartScreen.removeProduct(product);
-        Assert.assertFalse(cartScreen.isProductPresent(product), "Product is not removed from cart");
+        Assert.assertFalse(cartScreen.isProductPresent(product), "Products is not removed from cart");
     }
 
     @Test
@@ -51,7 +51,7 @@ public class SwagLabsTest extends AbstractSwagLabsTest {
         productsScreen.clickAddToCartBtn(product);
         CartScreenBase cartScreen = initPage(TopBarMenuBase.class).clickCartIconBtn();
         Assert.assertTrue(cartScreen.isOpened(), "Cart screen is not opened");
-        Assert.assertTrue(cartScreen.isProductPresent(product), "Product is not added on cart");
+        Assert.assertTrue(cartScreen.isProductPresent(product), "Products is not added on cart");
         CheckoutScreenBase checkoutScreen = cartScreen.clickCheckoutBtn();
         Assert.assertTrue(checkoutScreen.isOpened(), "Check out  screen is not opened");
         checkoutScreen.typeFirstName(R.TESTDATA.get("firstName"));
@@ -59,7 +59,7 @@ public class SwagLabsTest extends AbstractSwagLabsTest {
         checkoutScreen.typeZipcode(R.TESTDATA.get("zipCode"));
         CheckoutOverviewScreenBase overviewScreen = checkoutScreen.clickContinueBtn();
         Assert.assertTrue(overviewScreen.isOpened(), "OverView screen is not opened");
-        Assert.assertTrue(overviewScreen.isProductPresent(product), "Product is not present");
+        Assert.assertTrue(overviewScreen.isProductPresent(product), "Products is not present");
         CompleteScreenBase completeScreen = overviewScreen.clickFinishBtn();
         Assert.assertTrue(completeScreen.isOpened(), "Complete screen is not opened");
     }
@@ -82,7 +82,7 @@ public class SwagLabsTest extends AbstractSwagLabsTest {
         CatalogScreenBase productsScreen = authService.loginWithStandardUser();
         String product = "Sauce Labs Backpack";
         ProductScreenBase productInformationScreen = productsScreen.clickOnProduct(product);
-        Assert.assertTrue(productInformationScreen.isProductPresent(product), "Product is not founded");
+        Assert.assertTrue(productInformationScreen.isProductPresent(product), "Products is not founded");
     }
 
     @Test
@@ -145,11 +145,11 @@ public class SwagLabsTest extends AbstractSwagLabsTest {
         productsScreen.clickAddToCartBtn(product2);
         CartScreenBase cartScreen = initPage(TopBarMenuBase.class).clickCartIconBtn();
         Assert.assertTrue(cartScreen.isOpened(), "Cart screen is not opened");
-        Assert.assertTrue(cartScreen.isProductPresent(product1), "Product is not added on cart");
-        Assert.assertFalse(cartScreen.isProductPresent(product2), "Product is added on cart");
+        Assert.assertTrue(cartScreen.isProductPresent(product1), "Products is not added on cart");
+        Assert.assertFalse(cartScreen.isProductPresent(product2), "Products is added on cart");
     }
 
-    @Test(groups = "Problem_User", description = "Delete From Product screen")
+    @Test(groups = "Problem_User", description = "Delete From Products screen")
     public void puRemoveProductTest() {
         CatalogScreenBase productsScreen = authService.loginWithProblemUser();
         String product = "Sauce Labs Backpack";
@@ -163,10 +163,10 @@ public class SwagLabsTest extends AbstractSwagLabsTest {
         CatalogScreenBase productsScreen = authService.loginWithProblemUser();
         String product = "Sauce Labs Backpack";
         ProductScreenBase productInformationScreen = productsScreen.clickOnProduct(product);
-        Assert.assertFalse(productInformationScreen.isProductPresent(product), "Product is present");
+        Assert.assertFalse(productInformationScreen.isProductPresent(product), "Products is present");
     }
 
-    @Test(groups = "Problem_User", description = "Add to cart from Product  Screen")
+    @Test(groups = "Problem_User", description = "Add to cart from Products  Screen")
     public void addToCartFromProductScreen() {
         CatalogScreenBase productsScreen = authService.loginWithProblemUser();
         String product = "Sauce Labs Backpack";
@@ -174,6 +174,6 @@ public class SwagLabsTest extends AbstractSwagLabsTest {
         productInformationScreen.clickAddToCart();
         CartScreenBase cartScreen = initPage(TopBarMenuBase.class).clickCartIconBtn();
         Assert.assertTrue(cartScreen.isOpened(), "Cart screen is not opened");
-        Assert.assertFalse(cartScreen.isProductPresent(product), "Product is added on cart");
+        Assert.assertFalse(cartScreen.isProductPresent(product), "Products is added on cart");
     }
 }

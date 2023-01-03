@@ -1,0 +1,180 @@
+{
+	"definitions": {},
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://example.com/object1672497636.json",
+	"title": "Root",
+	"type": "object",
+	"required": [
+		"products",
+		"total",
+		"skip",
+		"limit"
+	],
+	"properties": {
+		"products": {
+			"$id": "#root/products",
+			"title": "Products",
+			"type": "array",
+			"default": [],
+			"items":{
+				"$id": "#root/products/items",
+				"title": "Items",
+				"type": "object",
+				"required": [
+					"id",
+					"title",
+					"description",
+					"price",
+					"discountPercentage",
+					"rating",
+					"stock",
+					"brand",
+					"category",
+					"thumbnail",
+					"images"
+				],
+				"properties": {
+					"id": {
+						"$id": "#root/products/items/id",
+						"title": "Id",
+						"type": "integer",
+						"examples": [
+							1
+						],
+						"default": 0
+					},
+					"title": {
+						"$id": "#root/products/items/title",
+						"title": "Title",
+						"type": "string",
+						"default": "",
+						"examples": [
+							"iPhone 9"
+						],
+						"pattern": "^.*$"
+					},
+					"description": {
+						"$id": "#root/products/items/description",
+						"title": "Description",
+						"type": "string",
+						"default": "",
+						"examples": [
+							"An apple mobile which is nothing like apple"
+						],
+						"pattern": "^.*$"
+					},
+					"price": {
+						"$id": "#root/products/items/price",
+						"title": "Price",
+						"type": "integer",
+						"examples": [
+							549
+						],
+						"default": 0
+					},
+					"discountPercentage": {
+						"$id": "#root/products/items/discountPercentage",
+						"title": "Discountpercentage",
+						"type": "number",
+						"examples": [
+							12.96
+						],
+						"default": 0.0
+					},
+					"rating": {
+						"$id": "#root/products/items/rating",
+						"title": "Rating",
+						"type": "number",
+						"examples": [
+							4.69
+						],
+						"default": 0.0
+					},
+					"stock": {
+						"$id": "#root/products/items/stock",
+						"title": "Stock",
+						"type": "integer",
+						"examples": [
+							94
+						],
+						"default": 0
+					},
+					"brand": {
+						"$id": "#root/products/items/brand",
+						"title": "Brand",
+						"type": "string",
+						"default": "",
+						"examples": [
+							"Apple"
+						],
+						"pattern": "^.*$"
+					},
+					"category": {
+						"$id": "#root/products/items/category",
+						"title": "Category",
+						"type": "string",
+						"default": "",
+						"examples": [
+							"smartphones"
+						],
+						"pattern": "^.*$"
+					},
+					"thumbnail": {
+						"$id": "#root/products/items/thumbnail",
+						"title": "Thumbnail",
+						"type": "string",
+						"default": "",
+						"examples": [
+							"https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+						],
+						"pattern": "^.*$"
+					},
+					"images": {
+						"$id": "#root/products/items/images",
+						"title": "Images",
+						"type": "array",
+						"default": [],
+						"items":{
+							"$id": "#root/products/items/images/items",
+							"title": "Items",
+							"type": "string",
+							"default": "",
+							"examples": [
+								"https://i.dummyjson.com/data/products/1/1.jpg"
+							],
+							"pattern": "^.*$"
+						}
+					}
+				}
+			}
+
+		},
+		"total": {
+			"$id": "#root/total",
+			"title": "Total",
+			"type": "integer",
+			"examples": [
+				100
+			],
+			"default": 0
+		},
+		"skip": {
+			"$id": "#root/skip",
+			"title": "Skip",
+			"type": "integer",
+			"examples": [
+				0
+			],
+			"default": 0
+		},
+		"limit": {
+			"$id": "#root/limit",
+			"title": "Limit",
+			"type": "integer",
+			"examples": [
+				30
+			],
+			"default": 0
+		}
+	}
+}

@@ -1,0 +1,12 @@
+{
+  "id": "type:Integer",
+  "title": "type:String",
+  "description": "type:String",
+  "price": "type:String",
+  "rating": "type:String",
+  "stock": "type:String",
+  "brand": "type:String",
+  "category": "type:String",
+  "thumbnail": "skip",
+  "images": "skip"
+}

@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.api.dummy_restipiexample;
+package com.qaprosoft.carina.demo.api.dummyjson;
 
 import com.qaprosoft.carina.core.foundation.api.AbstractApiMethodV2;
 import com.qaprosoft.carina.core.foundation.api.annotation.Endpoint;
@@ -8,12 +8,11 @@ import com.qaprosoft.carina.core.foundation.api.http.HttpMethodType;
 import com.qaprosoft.carina.core.foundation.api.http.HttpResponseStatusType;
 import com.zebrunner.carina.utils.Configuration;
 
-@Endpoint(url = "${base_url}/employee/${id}", methodType = HttpMethodType.GET)
-@ResponseTemplatePath(path = "api/dummy_restipiexample/_get/rsget.json")
+@Endpoint(url = "${base_url}/products/category/${item}", methodType = HttpMethodType.GET)
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
-public class GetEmployeeMethod extends AbstractApiMethodV2 {
-    public GetEmployeeMethod(String id) {
-        replaceUrlPlaceholder("base_url", Configuration.getEnvArg("api_dummyrestipiexample_url"));
-        replaceUrlPlaceholder("id", id);
+public class GetCategoriesItemMethod extends AbstractApiMethodV2 {
+    public GetCategoriesItemMethod(String item) {
+        replaceUrlPlaceholder("base_url", Configuration.getEnvArg("api_dummyjson_url"));
+        replaceUrlPlaceholder("item", item);
     }
 }
