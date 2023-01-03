@@ -1,0 +1,15 @@
+{
+  "id": "type:Integer",
+  "title": "type:String",
+  "description": "type:String",
+  "price": "type:Integer",
+  "discountPercentage": "type:Double",
+  "rating": "type:Double",
+  "stock": "type:Integer",
+  "brand": "type:String",
+  "category": "type:String",
+  "thumbnail": "skip",
+  "images": "skip",
+  "isDeleted": "skip",
+  "deletedOn": "skip"
+}

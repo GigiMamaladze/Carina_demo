@@ -22,7 +22,7 @@ public class Product extends AbstractUIObject {
     @FindBy(xpath = "//*[text()='%s']/../../div[@class='product-overlay']/div//a[contains(@class, 'add-to-cart')]")
     private ExtendedWebElement addToCard;
 
-    @FindBy(xpath = "//*[text()='View Product']")
+    @FindBy(xpath = "//*[text()='View Products']")
     private ExtendedWebElement viewProductBtn;
 
 

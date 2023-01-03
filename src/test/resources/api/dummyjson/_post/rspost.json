@@ -1,0 +1,12 @@
+{
+  "id": "type:Integer",
+  <#if title??>"title": "${title}",</#if>
+  <#if description??>"description": "${description}",</#if>
+  <#if price??>"price": "${price}",</#if>
+  <#if rating??>"rating": "${rating}",</#if>
+  <#if stock??>"stock": "${stock}",</#if>
+  <#if brand??>"brand": "${brand}",</#if>
+  <#if category??>"category": "${category}",</#if>
+  "thumbnail": "skip",
+  "images": "skip"
+}
