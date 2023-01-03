@@ -15,7 +15,7 @@ import com.zebrunner.carina.utils.Configuration;
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
 public class PutEmployeeMethod extends AbstractApiMethodV2 {
     public PutEmployeeMethod(String id) {
-        replaceUrlPlaceholder("base_url", Configuration.getEnvArg("api_url"));
+        replaceUrlPlaceholder("base_url", Configuration.getEnvArg("api_dummyrestipiexample_url"));
         replaceUrlPlaceholder("id", id);
     }
 }

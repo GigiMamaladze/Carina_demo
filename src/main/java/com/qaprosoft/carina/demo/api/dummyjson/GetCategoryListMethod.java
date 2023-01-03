@@ -13,7 +13,7 @@ import com.zebrunner.carina.utils.Configuration;
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
 public class GetCategoryListMethod extends AbstractApiMethodV2 {
     public GetCategoryListMethod() {
-        replaceUrlPlaceholder("base_url", Configuration.getEnvArg("api_url"));
+        replaceUrlPlaceholder("base_url", Configuration.getEnvArg("api_dummyjson_url"));
     }
 
 }
