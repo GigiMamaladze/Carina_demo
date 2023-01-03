@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "data": {
+    "id": "type:Integer",
+    "employee_name": "type:String",
+    "employee_salary": "type:Integer",
+    "employee_age": "type:Integer",
+    "profile_image": ""
+  },
+  "message": "Successfully! Record has been fetched."
+}

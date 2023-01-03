@@ -1,0 +1,7 @@
+{
+  "id": "type:Integer",
+  <#if name??>"employee_name": "${name}"</#if>,
+  <#if salary??>"employee_salary": "${salary}"</#if>,
+  <#if age??>"employee_age": "${age}"</#if>,
+  "profile_image": ""
+}
