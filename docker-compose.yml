@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  mvn-dc:
+    build: .
+    volumes:
+      - .:/Carina_demo
+      - ~/target:/Carina_demo/target
+    environment:
+      - SUIT
+

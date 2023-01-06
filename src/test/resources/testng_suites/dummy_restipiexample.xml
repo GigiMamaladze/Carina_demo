@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Dummy rest api example" parallel="methods" thread-count="3">
+    <test name="Dummy_restapiexample">
+        <classes>
+            <class name="com.qaprosoft.carina.demo.api_tests.DummyRestipiExampleTest"/>
+        </classes>
+    </test>
+</suite>
