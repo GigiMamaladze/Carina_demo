@@ -1,0 +1,9 @@
+<qa:browsers xmlns:qa="urn:config.gridrouter.qatools.ru">
+    <browser name="chrome" defaultVersion="88.0">
+        <version number="88.0">
+            <region name="1">
+                <host name="selenoid.example.com" port="4444" count="1"/>
+            </region>
+        </version>
+    </browser>
+</qa:browsers>
