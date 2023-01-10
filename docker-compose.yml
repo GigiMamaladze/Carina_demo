@@ -7,63 +7,31 @@ services:
       - ~/target:/Carina_demo/target
     environment:
       - SUIT
-  grid-router:
-    restart: always
-    image: "aerokube/ggr:latest-release"
-    links:
-      - ggr-ui
-    ports:
-      - "4446:4446"
-    volumes:
-      - "./etc/grid-router/:/etc/grid-router"
-      - "./ggr-cache:/ggr-cache"
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - './etc/grid-router/users.htpasswd:/etc/grid-router/users.htpasswd'
-      - "./:/etc/grid-router:ro"
-    environment:
-      - GGR_CACHE_DIR=/ggr-cache
-    command: [ "-quotaDir", "/etc/grid-router/quota", "-listen", ":4446" ]
-
-  ggr-ui:
-    restart: always
-    image: aerokube/ggr-ui
-    ports:
-      - "8888:8888"
-    volumes:
-      - "./:/etc/grid-router:ro"
-  selenoid-ui:
-    restart: always
-    image: aerokube/selenoid-ui
-    links:
-      - ggr-ui
-    ports:
-      - "8080:8080"
-    command: [ "--selenoid-uri", "http://ggr-ui:8888" ]
-  selenium-server-standalone:
-    restart: always
-    image: antonpatsev/selenium-server-standalone:2.44
-    ports:
-      - "4445:4445"
-    command: [ "java", "-jar", "/selenium-server-standalone-2.44.0.jar", "-port", "4445" ]
   selenoid:
+    image: "aerokube/selenoid"
     network_mode: bridge
-    image: aerokube/selenoid:latest-release
-    volumes:
-      - "./etc:/etc/selenoid"
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "/Users/gigimamaladze/Development/Docker_stuff/video"
-      - "./ggr-cache:/ggr-cache"
-    environment:
-      - OVERRIDE_VIDEO_OUTPUT_DIR=/Users/gigimamaladze/Development/Docker_stuff/video
-    command: [ "-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video" ]
+    restart: unless-stopped
     ports:
       - "4444:4444"
-  chrome67:
-    image: selenoid/chrome:100.0
-  chrome68:
-    image: selenoid/chrome:101.0
+    volumes:
+      - "$PWD:/etc/selenoid/"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/Users/gigimamaladze/Development/Docker_stuff/video/:/opt/selenoid/video:rw"
+    environment:
+      - OVERRIDE_VIDEO_OUTPUT_DIR=/Users/gigimamaladze/Development/Docker_stuff/video
+  selenoid-ui:
+    image: "aerokube/selenoid-ui"
+    network_mode: bridge
+    depends_on:
+      - selenoid
+    links:
+      - selenoid
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    command: [ "--selenoid-uri", "http://selenoid:4444" ]
   videorecorder:
     image: selenoid/video-recorder:latest-release
-    logging:
-      driver: none
+  chrome:
+    image: sskorol/selenoid_chromium_vnc:100.0
 
