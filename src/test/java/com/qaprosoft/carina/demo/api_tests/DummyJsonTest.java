@@ -2,15 +2,14 @@ package com.qaprosoft.carina.demo.api_tests;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.qaprosoft.apitools.validation.JsonCompareKeywords;
+import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.demo.api.dummyjson.*;
 import com.qaprosoft.carina.demo.api.dummyjson.models.Product;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.skyscreamer.jsonassert.JSONCompareMode;
 import org.testng.annotations.Test;
 
-public class DummyJsonTest {
+public class DummyJsonTest implements IAbstractTest {
     private static final Logger LOGGER = LogManager.getLogger(DummyJsonTest.class);
 
     @Test

@@ -3,35 +3,9 @@ services:
   mvn-dc:
     build: .
     volumes:
-      - .:/Carina_demo
-      - ~/target:/Carina_demo/target
+      - './target/:/Carina-demo/target'
+      - './reports/:/Carina-demo/reports'
     environment:
-      - SUIT
-  selenoid:
-    image: "aerokube/selenoid"
-    network_mode: bridge
-    restart: unless-stopped
-    ports:
-      - "4444:4444"
-    volumes:
-      - "$PWD:/etc/selenoid/"
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "/Users/gigimamaladze/Development/Docker_stuff/video/:/opt/selenoid/video:rw"
-    environment:
-      - OVERRIDE_VIDEO_OUTPUT_DIR=/Users/gigimamaladze/Development/Docker_stuff/video
-  selenoid-ui:
-    image: "aerokube/selenoid-ui"
-    network_mode: bridge
-    depends_on:
-      - selenoid
-    links:
-      - selenoid
-    restart: unless-stopped
-    ports:
-      - "8080:8080"
-    command: [ "--selenoid-uri", "http://selenoid:4444" ]
-  videorecorder:
-    image: selenoid/video-recorder:latest-release
-  chrome:
-    image: sskorol/selenoid_chromium_vnc:100.0
+      SUITE_NAME: ${SUITE_NAME}
+
 
