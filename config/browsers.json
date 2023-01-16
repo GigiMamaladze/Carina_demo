@@ -1,9 +1,9 @@
 {
   "chrome": {
-    "default": "108.0",
+    "default": "100.0",
     "versions": {
-      "108.0": {
-        "image": "selenoid/chrome:108.0",
+      "100.0": {
+        "image": "sskorol/selenoid_chromium_vnc:100.0",
         "port": "4444",
         "path": "/",
         "tmpfs": {

@@ -1,0 +1,1 @@
+FROM aerokube/selenoid-ui:latest-release

@@ -1,0 +1,1 @@
+FROM aerokube/selenoid:latest-release

@@ -8,4 +8,45 @@ services:
     environment:
       SUITE_NAME: ${SUITE_NAME}
 
+  selenoid:
+    network_mode: bridge
+    image: aerokube/selenoid:latest-release
+    container_name: "selenoid-compose"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "$PWD/config/:/etc/selenoid/:ro"
+      - "$PWD/config/video:/opt/selenoid/video"
+      - "$PWD/config/logs:/opt/selenoid/logs"
+    environment:
+      - OVERRIDE_VIDEO_OUTPUT_DIR=$PWD/config/video
+    command: [ "-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video", "-log-output-dir", "/opt/selenoid/logs" ]
+    ports:
+      - "4444:4444"
+
+  selenoid-ui:
+    image: aerokube/selenoid-ui
+    container_name: "selenoid-ui-compose"
+    network_mode: bridge
+    links:
+      - selenoid
+    hostname: "selenoid.example.com"
+    ports:
+      - "8090:8080"
+    command: [ "--selenoid-uri","http://selenoid:4444" ]
+  video-recorder:
+    image: selenoid/video-recorder:latest-release
+    container_name: "selenoid-video-compose"
+    depends_on:
+      - selenoid
+
+  chrome:
+    image: sskorol/selenoid_chromium_vnc:100.0
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenoid
+    environment:
+      - HUB_HOST=selenoid
+      - HUB_PORT=4444
+
 
