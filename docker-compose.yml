@@ -3,35 +3,50 @@ services:
   mvn-dc:
     build: .
     volumes:
-      - .:/Carina_demo
-      - ~/target:/Carina_demo/target
+      - './target/:/Carina-demo/target'
+      - './reports/:/Carina-demo/reports'
     environment:
-      - SUIT
+      SUITE_NAME: ${SUITE_NAME}
+
   selenoid:
-    image: "aerokube/selenoid"
     network_mode: bridge
-    restart: unless-stopped
+    image: aerokube/selenoid:latest-release
+    container_name: "selenoid-compose"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "$PWD/config/:/etc/selenoid/:ro"
+      - "$PWD/config/video:/opt/selenoid/video"
+      - "$PWD/config/logs:/opt/selenoid/logs"
+    environment:
+      - OVERRIDE_VIDEO_OUTPUT_DIR=$PWD/config/video
+    command: [ "-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video", "-log-output-dir", "/opt/selenoid/logs" ]
     ports:
       - "4444:4444"
-    volumes:
-      - "$PWD:/etc/selenoid/"
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "/Users/gigimamaladze/Development/Docker_stuff/video/:/opt/selenoid/video:rw"
-    environment:
-      - OVERRIDE_VIDEO_OUTPUT_DIR=/Users/gigimamaladze/Development/Docker_stuff/video
+
   selenoid-ui:
-    image: "aerokube/selenoid-ui"
+    image: aerokube/selenoid-ui
+    container_name: "selenoid-ui-compose"
     network_mode: bridge
-    depends_on:
-      - selenoid
     links:
       - selenoid
-    restart: unless-stopped
+    hostname: "selenoid.example.com"
     ports:
-      - "8080:8080"
-    command: [ "--selenoid-uri", "http://selenoid:4444" ]
-  videorecorder:
+      - "8090:8080"
+    command: [ "--selenoid-uri","http://selenoid:4444" ]
+  video-recorder:
     image: selenoid/video-recorder:latest-release
+    container_name: "selenoid-video-compose"
+    depends_on:
+      - selenoid
+
   chrome:
     image: sskorol/selenoid_chromium_vnc:100.0
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenoid
+    environment:
+      - HUB_HOST=selenoid
+      - HUB_PORT=4444
+
 
