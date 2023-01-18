@@ -38,5 +38,5 @@ mvn clean eclipse:eclipse
 mvn clean test -Dsuite=api
 ```
 
-rat unda yvirili aqanaa
+ILo aris magarii kaciiii 
 
