@@ -38,5 +38,5 @@ mvn clean eclipse:eclipse
 mvn clean test -Dsuite=api
 ```
 
-ILo aris magarii kaciiii 
+Have a nice day
 
