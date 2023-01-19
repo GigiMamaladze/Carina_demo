@@ -38,5 +38,4 @@ mvn clean eclipse:eclipse
 mvn clean test -Dsuite=api
 ```
 
-Have a nice day
 
