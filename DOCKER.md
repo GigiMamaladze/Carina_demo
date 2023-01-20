@@ -27,4 +27,3 @@
 1) docker compose up _ compose docker file creating container and imagines too
 
 2) docker compose down _ restart compose
-   //---------------------------------------------
