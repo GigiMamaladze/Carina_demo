@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Swag Lab Application Test" parallel="methods" thread-count="3">
+    <test name="SwagLab ">
+        <classes>
+            <class name="com.qaprosoft.carina.demo.mobilegui_tests.SwagLabsTest"/>
+        </classes>
+    </test>
+</suite>
