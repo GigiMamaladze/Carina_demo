@@ -2,6 +2,7 @@ package com.qaprosoft.carina.demo.gui_tests;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.Brands;
+import com.zebrunner.agent.core.registrar.Artifact;
 import com.zebrunner.carina.utils.R;
 import com.qaprosoft.carina.demo.gui.automation_excercise.components.AddedProductPopup;
 import com.qaprosoft.carina.demo.gui.automation_excercise.pages.*;
@@ -10,8 +11,15 @@ import com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.categ
 import com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.categories.subcategories.KidsSubCategory;
 import com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.categories.subcategories.MenSubCategories;
 import com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.categories.subcategories.WomenSubCategories;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 
 public class AutomationExerciseTest extends AbstractTest {
@@ -19,7 +27,6 @@ public class AutomationExerciseTest extends AbstractTest {
 
     @Test
     public void loginTest() {
-
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Page is not opened");
@@ -29,6 +36,8 @@ public class AutomationExerciseTest extends AbstractTest {
         singUpLogInPage.typePassword(R.TESTDATA.get("password"));
         singUpLogInPage.clickLogInBtn();
         Assert.assertTrue(homePage.getMenu().isAccountDisplayed(R.TESTDATA.get("userName")), "Account is not displayed");
+        Path path = Paths.get("/Users/gigimamaladze/IdeaProjects/Carina_demo/config/video/video.mp4");
+        Artifact.attachToTest("video", path);
     }
 
     @Test
@@ -212,4 +221,8 @@ public class AutomationExerciseTest extends AbstractTest {
 
     }
 
+//    @AfterMethod
+//    public void uploadVideo() {
+//        Artifact.attachToTest("video", path);
+//    }
 }
