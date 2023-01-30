@@ -220,9 +220,4 @@ public class AutomationExerciseTest extends AbstractTest {
         Assert.assertTrue(paymentDonePage.isPageOpened(), "Page is not opened");
 
     }
-
-//    @AfterMethod
-//    public void uploadVideo() {
-//        Artifact.attachToTest("video", path);
-//    }
 }
