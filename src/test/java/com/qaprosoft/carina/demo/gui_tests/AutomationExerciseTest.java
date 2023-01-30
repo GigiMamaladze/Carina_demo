@@ -41,7 +41,7 @@ public class AutomationExerciseTest extends AbstractTest {
     }
 
     @Test
-    public void addToCardTest() {
+    public void addToCartTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Page is not opened");
