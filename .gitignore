@@ -33,4 +33,4 @@ reports/*
 *new_custom_messages_*.properties
 /bin/
 .DS_Store
-/src/main/resources/agent.properties
+src/main/resources/agent.properties
