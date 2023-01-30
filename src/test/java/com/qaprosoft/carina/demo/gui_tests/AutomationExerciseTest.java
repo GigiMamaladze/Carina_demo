@@ -218,6 +218,5 @@ public class AutomationExerciseTest extends AbstractTest {
         paymentPage.scrollToSubmitBtn();
         PaymentDonePage paymentDonePage = paymentPage.clickSubmitBtn();
         Assert.assertTrue(paymentDonePage.isPageOpened(), "Page is not opened");
-
     }
 }
