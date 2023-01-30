@@ -107,7 +107,6 @@ public class AutomationExerciseTest extends AbstractTest {
         pause(5);
         contactUsPage.getDriver().switchTo().alert().accept();
         Assert.assertTrue(contactUsPage.isMessageSent(), "Message is not sent");
-
     }
 
     //------------------------------------------Second Task------------------------------------------------
