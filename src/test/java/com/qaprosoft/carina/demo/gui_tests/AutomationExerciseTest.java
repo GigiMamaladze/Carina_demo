@@ -1,8 +1,11 @@
 package com.qaprosoft.carina.demo.gui_tests;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
+import com.qaprosoft.carina.core.foundation.report.testrail.TestRailCases;
 import com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.Brands;
+import com.zebrunner.agent.core.annotation.TestRailCaseId;
 import com.zebrunner.agent.core.registrar.Artifact;
+import com.zebrunner.agent.core.registrar.TestRail;
 import com.zebrunner.carina.utils.R;
 import com.qaprosoft.carina.demo.gui.automation_excercise.components.AddedProductPopup;
 import com.qaprosoft.carina.demo.gui.automation_excercise.pages.*;
@@ -13,10 +16,7 @@ import com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.categ
 import com.qaprosoft.carina.demo.gui_components.automation_excercise.enums.categories.subcategories.WomenSubCategories;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -24,8 +24,16 @@ import java.nio.file.Paths;
 
 public class AutomationExerciseTest extends AbstractTest {
 
+    @BeforeSuite
+    public void setUp() {
+        TestRail.setSuiteId("175");
+        TestRail.setRunName("Automation exercise test");
+        TestRail.setAssignee("Gigi Mamaladze");
+    }
+
 
     @Test
+    @TestRailCaseId("3449")
     public void loginTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
@@ -36,11 +44,10 @@ public class AutomationExerciseTest extends AbstractTest {
         singUpLogInPage.typePassword(R.TESTDATA.get("password"));
         singUpLogInPage.clickLogInBtn();
         Assert.assertTrue(homePage.getMenu().isAccountDisplayed(R.TESTDATA.get("userName")), "Account is not displayed");
-        Path path = Paths.get("/Users/gigimamaladze/IdeaProjects/Carina_demo/config/video/video.mp4");
-        Artifact.attachToTest("video", path);
     }
 
     @Test
+    @TestRailCaseId("3441")
     public void addToCartTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
@@ -59,6 +66,7 @@ public class AutomationExerciseTest extends AbstractTest {
     }
 
     @Test
+    @TestRailCaseId("3442")
     public void removeProductTest() {
         /* To remove product from the cart, first we need to add produ
          */
@@ -80,6 +88,7 @@ public class AutomationExerciseTest extends AbstractTest {
     }
 
     @Test
+    @TestRailCaseId("3440")
     public void checkSwiperTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
@@ -92,6 +101,7 @@ public class AutomationExerciseTest extends AbstractTest {
 
 
     @Test(enabled = true)
+    @TestRailCaseId("3452")
     public void checkContactUsTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
@@ -111,6 +121,7 @@ public class AutomationExerciseTest extends AbstractTest {
 
     //------------------------------------------Second Task------------------------------------------------
     @Test
+    @TestRailCaseId("3445")
     public void checkSearchTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
@@ -124,6 +135,7 @@ public class AutomationExerciseTest extends AbstractTest {
     }
 
     @Test
+    @TestRailCaseId("3444")
     public void checkProductDetailsPageTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
@@ -136,6 +148,7 @@ public class AutomationExerciseTest extends AbstractTest {
     }
 
     @Test
+    @TestRailCaseId("3446")
     public void checkCategoriesTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
@@ -169,6 +182,7 @@ public class AutomationExerciseTest extends AbstractTest {
     }
 
     @Test
+    @TestRailCaseId("3447")
     public void checkBrandsTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
@@ -182,6 +196,7 @@ public class AutomationExerciseTest extends AbstractTest {
 
 
     @Test
+    @TestRailCaseId("3443")
     public void checkProductOrderTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
