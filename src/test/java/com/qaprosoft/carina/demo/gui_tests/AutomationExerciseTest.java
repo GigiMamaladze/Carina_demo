@@ -166,7 +166,6 @@ public class AutomationExerciseTest extends AbstractTest {
                     homePage.getCategoriesMenu().clickOnCategory(c);
                 }
             }
-
         }
     }
 
